@@ -416,9 +416,14 @@ def vs_page(c):
     for sec in c.get("sections", []):
         body += f'<h2>{sec["h"]}</h2>{sec["html"]}'
     body += "<h2>Our verdict</h2>" + c.get("verdict", "")
-    # CTA к победителю
+    # CTA к победителю + проигравшему (если есть affiliate-ссылка)
     if c.get("winner") in PRODUCTS:
         body += sg.cta_box(c["winner"])
+    loser_key = c["a"] if c.get("winner") == c["b"] else c["b"]
+    if loser_key in PRODUCTS and loser_key != c.get("winner"):
+        loser_href, loser_aff = sg.link_for(loser_key)
+        if loser_aff:
+            body += sg.cta_box(loser_key)
     # ponytail: internal linking (was 5 unique links/page). Same-category vs pages, exclude self.
     rel = [x for x in CMP.get("pages", []) if x.get("category") == c.get("category") and x["path"] != path][:4]
     if rel:

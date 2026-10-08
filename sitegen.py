@@ -183,6 +183,19 @@ def cta_box(key, blurb=None):
 <span class="stars">{stars(p.get('rating',4.5))}</span></div>
 <a class="btn primary" href="{href}"{rel} target="_blank">{label}</a></div>"""
 
+def cta_dual(key_a, key_b):
+    """CTA на обоих участника vs-страницы, если у обоих есть affiliate-ссылки."""
+    parts = []
+    for k in (key_a, key_b):
+        p = PRODUCTS.get(k)
+        if not p: continue
+        href, is_aff = link_for(k)
+        if not is_aff: continue
+        parts.append(f'<a class="btn primary" href="{href}" rel="nofollow sponsored noopener" target="_blank">Visit {e(p["name"])} →</a>')
+    if not parts:
+        return cta_box(key_a)
+    return f'<div class="cta-box"><div class="info"><b>Both offer free trials — test before you commit.</b></div>{"".join(parts)}</div>'
+
 def compare_table(rows, cols):
     """rows: list of dicts {feature, values:[...] , winner:int|None}"""
     th = "".join(f"<th>{e(c)}</th>" for c in cols)
