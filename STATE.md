@@ -12,13 +12,13 @@
 ## Критические проблемы (найдены 08.10)
 | Проблема | Severity | Статус |
 |----------|----------|--------|
-| Vercel-токены протухли (09.09) — деплой невозможен | CRITICAL | Ждём device-flow подтверждение владельца |
-| Cloudways/is*hosting CTA → голые сайты без affiliate-ссылок | HIGH | Не исправлено (Admitad заблокирован 2FA) |
-| Навигация /tools/ → 404 на boardmix-vs-miro/mural, invideo-vs-canva | HIGH | Исправлено в коде (3 новые страницы), ждёт деплоя |
-| AvitoVIP $3 не монетизировался (0 страниц) | HIGH | Исправлено: review + guide + hub, ждёт деплоя |
-| Нет /privacy/ (Adsterra требует) | MEDIUM | Исправлено в коде, ждёт деплоя |
-| Витринная ссылка → мёртвый shablony-pro.vercel.app | MEDIUM | Исправлено на shablonypro.dpdns.org, ждёт деплоя |
-| SEO-backlog крон a7a4d645691d сломан (DSML-баг) | MEDIUM | Требует проверки конфига |
+| ~~Vercel-токены протухли (09.09)~~ | CRITICAL | ✅ ИСПРАВЛЕНО 08.10 21:50 — вход через email-код (keyt9750@gmail.com), деплой OK |
+| Cloudways/is*hosting CTA → голые сайты без affiliate-ссылок | HIGH | Не исправлено (Admitad заблокирован 2FA, ждём support@mitgo.com) |
+| ~~Навигация /tools/ → 404 на boardmix-vs-miro/mural, invideo-vs-canva~~ | HIGH | ✅ ЗАДЕПЛОЕНО 08.10 (3 новые страницы, 200 OK) |
+| ~~AvitoVIP $3 не монетизировался (0 страниц)~~ | HIGH | ✅ ЗАДЕПЛОЕНО 08.10: /transfer/avitovip/ с kjuzv.com CTA + гайд + хаб |
+| ~~Нет /privacy/~~ | MEDIUM | ✅ ЗАДЕПЛОЕНО |
+| ~~Витринная ссылка → мёртвый shablony-pro.vercel.app~~ | MEDIUM | ✅ ЗАДЕПЛОЕНО (shablonypro.dpdns.org) |
+| ~~SEO-backlog крон a7a4d645691d сломан (DSML-баг)~~ | MEDIUM | ✅ Пересоздан как content-крон cc9acb7a2028 |
 | GSC-квота исчерпывается (общая ~10/день на все сайты) | LOW | Лимит 2/сайт/день соблюдается |
 
 ## Кроны
@@ -31,15 +31,20 @@
 - Данные: cmpsite/data/*.json
 - Деплой: cmpsite/site/ → vercel --prod (требует auth)
 
-## Следующие шаги
-1. [СРОЧНО] Vercel device-flow: владелец открывает https://vercel.com/oauth/device?user_code=SGDP-FNCC → деплой 47 страниц
-2. После деплоя: IndexNow сабмит новых URL (/transfer/, /privacy/, 3 новых vs)
-3. Admitad 2FA: ждать ответ support@mitgo.com, потом подставить Cloudways/is*hosting affiliate-ссылки
-4. Починить SEO-backlog крон (DSML → нормальный prompt)
+## Следующие шаги (дедлайны)
+1. [до 12.10] Admitad 2FA: проверить почту singap (himalaya envelope list --account singap | grep -i mitgo). При ответе — достать href Cloudways (id 23427) + is*hosting (id 173159) → вписать в data/config.json → пересборка → деплой (команда: `cd cmpsite/site && npx vercel@latest deploy --prod --yes`). До этого момента хостинг-CTA бесплатно рекламируют чужие сайты.
+2. [10.10] Проверить GSC: появились ли новые URL (/transfer/*, /tools/*) в индексе после IndexNow-сабмита 08.10.
+3. [ежедневно, content-крон] Триггер A1: новый запрос в geo_audit/gsc_queries.csv с impressions>=8 без страницы → создать страницу, пересборка, деплой, IndexNow.
 
-## Автопилот (планируется)
-- health: 2×/день — сайт 200, платёжка жива, кроны не молчат
-- content: 1/день — новый vs/обзор/гайд по нише
-- traffic: 1/день — IndexNow + GSC сабмит новых URL
-- hunt: 2×/день — поиск заказов/баунти по профилю
-- report: вечером — сводка
+## Автопилот (СОЗДАН 08.10)
+| Крон | ID | Расписание | Что делает |
+|------|----|-----------|-----------|
+| health | 56d9c3299a42 | 8:00, 20:00 | сайт 200? sitemap >40? CTA не пустые? кроны не молчат? |
+| content | cc9acb7a2028 | 9:00 | триггеры SEO-BACKLOG (A1: новый запрос impressions>=8 → страница) |
+| traffic | d4bcf1a69171 | 12:00 | IndexNow новых URL + проверка GSC-крона |
+| report | f22749669341 | 20:00 | вечерняя сводка (в сводку 20:00) |
+- GSC-крон 4a2686df505a: работает, ежедневно 10:10 (квота 2/сайт/день)
+- SEO-backlog a7a4d645691d: сломан DSML-багом 04.10 — пересоздан как content-крон выше
+
+## GitHub
+Репо: https://github.com/Alex20Sas12/stackpickr (создан 08.10, workflow .github/workflows/deploy.yml готов — нужен VERCEL_TOKEN secret после перелогина)
