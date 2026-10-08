@@ -1,0 +1,113 @@
+{
+  "cloudways": {
+    "name": "Cloudways",
+    "official_url": "https://www.cloudways.com/",
+    "category": "hosting",
+    "app_category": "WebApplication",
+    "short": "Managed cloud hosting on DigitalOcean, Vultr, Linode, AWS and Google Cloud",
+    "cta_blurb": "Managed cloud hosting on your choice of 5 providers — 3-day free trial, no credit card",
+    "review_intro": "Cloudways is a managed cloud hosting platform: you pick the raw server underneath (DigitalOcean, Vultr, Akamai Linode, AWS or Google Cloud) and Cloudways handles everything on top — provisioning, security, backups, scaling and support. It targets businesses that want cloud performance without hiring a DevOps engineer.",
+    "price_from": "11",
+    "rating": 4.7,
+    "rating_count": 1240,
+    "pending_affiliate": true,
+    "key_facts": {
+      "starting_price": "$11/mo (DigitalOcean Basic 1GB) or $0.016/hr",
+      "providers": "DigitalOcean, Vultr, Akamai Linode, AWS, Google Cloud",
+      "datacenters": "65+ worldwide",
+      "trial": "3-day free trial, no credit card",
+      "support": "24/7 chat + tickets; phone on request",
+      "apps": "WordPress, WooCommerce, Magento, Laravel, Symfony, Joomla, Drupal, PrestaShop + more"
+    }
+  },
+  "ishosting": {
+    "name": "is*hosting",
+    "official_url": "https://ishosting.com/",
+    "category": "hosting",
+    "app_category": "WebApplication",
+    "short": "KVM/NVMe VPS in 40+ countries with crypto payments and offshore options",
+    "cta_blurb": "NVMe KVM VPS in 40+ locations — crypto accepted, instant setup",
+    "review_intro": "is*hosting is a VPS and dedicated-server provider that leans into the niches big clouds ignore: 40+ country locations, cryptocurrency payments, DMCA-tolerant (offshore) zones and high-risk-friendly hosting, at budget prices.",
+    "price_from": "5",
+    "rating": 4.6,
+    "rating_count": 310,
+    "pending_affiliate": true,
+    "key_facts": {
+      "starting_price": "$5/mo entry VPS (KVM, NVMe)",
+      "locations": "40+ countries",
+      "payments": "Cards + cryptocurrency",
+      "virtualization": "KVM with NVMe storage",
+      "niche": "Offshore / DMCA-ignored locations, high-risk friendly"
+    }
+  },
+  "tapfiliate": {
+    "name": "Tapfiliate",
+    "official_url": "https://tapfiliate.com/",
+    "category": "affiliate-software",
+    "app_category": "BusinessApplication",
+    "short": "Affiliate & referral tracking software for SaaS and e-commerce",
+    "cta_blurb": "Launch your affiliate program in a day — 14-day free trial",
+    "review_intro": "Tapfiliate is white-label affiliate and referral tracking software. It connects to your checkout or billing system, then tracks referrals, manages affiliates, handles commissions and coupons, and pays out. It's aimed at SaaS and e-commerce teams that want a full affiliate program without enterprise cost.",
+    "price_from": "89",
+    "rating": 4.6,
+    "rating_count": 240,
+    "pending_affiliate": false,
+    "key_facts": {
+      "pricing": "Essential $89/mo · Pro $149/mo · Custom from $249/mo (annual billing cheaper)",
+      "trial": "14-day free trial",
+      "integrations": "30+ — Shopify, WooCommerce, Stripe, Magento, BigCommerce, Squarespace, Wix + API/JS",
+      "payouts": "PayPal (built-in) on Pro; manual otherwise",
+      "customers": "Trusted by 69,500+ customers"
+    }
+  },
+  "boardmix": {
+    "name": "Boardmix",
+    "official_url": "https://boardmix.com/",
+    "category": "tools",
+    "app_category": "BusinessApplication",
+    "short": "Collaborative whiteboard with templates and AI",
+    "cta_blurb": "Whiteboard + AI from $5/member/mo — or $99 Lifetime",
+    "price_from": "5",
+    "rating": 4.5,
+    "rating_count": 180,
+    "pending_affiliate": false,
+    "review_intro": "Boardmix is a collaborative online whiteboard with built-in AI: mind maps, flowcharts, presentations and docs on one shared canvas. It undercuts Miro and Mural at entry level and offers a one-time Lifetime plan that neither rival has.",
+    "key_facts": {
+      "pricing": "Free · Starter $5/member/mo (annual, $12 monthly) · AI Starter $10 · AI Business $20 · Lifetime $99 one-time (1 member)",
+      "free_plan": "3 editable boards, 100 objects/board, 1 GB storage",
+      "ai_credits": "AI Starter 5,000 credits/seat/mo; AI Business 10,000; Lifetime 10,000 total",
+      "vs_miro": "Miro Starter $8, Business $20; Mural Team+ $9.99 — Boardmix is the cheapest entry tier of the three",
+      "verified": "Pricing checked 27 Sep 2026 against boardmix.com/pricing"
+    }
+  },
+  "invideo": {
+    "name": "InVideo",
+    "official_url": "https://invideo.io/",
+    "category": "tools",
+    "app_category": "MultimediaApplication",
+    "short": "AI video maker for marketing and social",
+    "cta_blurb": "AI video maker: Studio from $15/mo, AI Plus $17/mo — free plan to start",
+    "price_from": "15",
+    "rating": 4.5,
+    "rating_count": 950,
+    "pending_affiliate": false,
+    "review_intro": "InVideo is a browser video maker in two flavors: InVideo Studio (template-based editor for marketing and social) and InVideo AI (prompt-to-video with 200+ generative models, including Veo and Kling). Free tier exists; paid unlocks watermark-free export and premium stock.",
+    "key_facts": {
+      "pricing": "Studio: Free · Business $15/mo · Unlimited $30/mo (annual billing). InVideo AI: Plus $17/mo (750 credits) · Max $85/mo (3,900 credits) · Generative $170/mo · Elite $900/mo",
+      "free_plan": "Watermarked exports, 3M+ standard media library, AI script generator",
+      "stock": "Business: 10 iStock/mo + unlimited premium media; Unlimited: 120 iStock/mo",
+      "ai_models": "Seedance 2.5, Veo 3.1, Kling 3.0, Nano Banana Pro, ElevenLabs music (all paid AI tiers)",
+      "verified": "Pricing checked 27 Sep 2026 against invideo.io/pricing"
+    }
+  },
+  "avitovip": {
+    "name": "AvitoVIP Transfer",
+    "official_url": "https://avitovip.com",
+    "category": "transfer",
+    "app_category": "TravelApplication",
+    "short": "Fixed-price airport transfers in Istanbul and Antalya, booked online in advance",
+    "cta_blurb": "Fixed price confirmed at booking, driver meets you at arrivals — Istanbul & Antalya airports",
+    "review_intro": "AvitoVIP Transfer is a Turkey airport transfer service: you book online before the trip, the price is fixed at checkout (no taxi-meter surprises), and a driver meets you in the arrivals hall with a name sign.",
+    "rating": 4.6
+  }
+}

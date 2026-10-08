@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Калькулятор такси Стамбула 2026: точная цена поездки из IST и SAW</title>
+<meta name="description" content="Рассчитайте цену такси из аэропортов Стамбула: фикс-тарифы IST (2100–3800₺), счётчик SAW (65.40₺ + 43.56₺/км + мост). Сравнение с трансфером в один клик.">
+<link rel="canonical" href="https://transfers-turkey.vercel.app/taxi-calculator/">
+<link rel="alternate" hreflang="ru" href="https://transfers-turkey.vercel.app/taxi-calculator/">
+<link rel="alternate" hreflang="en" href="https://transfers-turkey.vercel.app/en/taxi-calculator/">
+<meta property="og:title" content="Калькулятор такси Стамбула 2026: точная цена поездки из IST и SAW">
+<meta property="og:description" content="Рассчитайте цену такси из аэропортов Стамбула: фикс-тарифы IST (2100–3800₺), счётчик SAW (65.40₺ + 43.56₺/км + мост). Сравнение с трансфером в один клик.">
+<meta property="og:url" content="https://transfers-turkey.vercel.app/taxi-calculator/">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://transfers-turkey.vercel.app/img/stock/skyline_sunset.jpg">
+<meta property="og:locale" content="ru_RU">
+<meta name="twitter:card" content="summary">
+<link rel="alternate" type="application/rss+xml" title="TransferGuide Turkey Feed" href="https://transfers-turkey.vercel.app/feed.xml">
+
+<style>
+:root{--bg:#f7f9fb;--panel:#ffffff;--ink:#16222e;--muted:#5b6b7a;--acc:#0e7490;--acc2:#f59e0b;
+--ok:#0e9f6e;--bad:#dc2626;--border:#dde5ec;--radius:14px}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
+background:var(--bg);color:var(--ink);line-height:1.7;font-size:17px}
+a{color:var(--acc);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px}
+header.site{background:var(--panel);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:10}
+header.site .wrap{display:flex;align-items:center;gap:18px;padding:12px 20px;flex-wrap:wrap}
+header.site .logo{font-weight:800;font-size:19px;color:var(--ink)}
+header.site .logo span{color:var(--acc)}
+header.site nav{display:flex;gap:16px;font-size:15px;flex-wrap:wrap}
+.langsw{margin-left:auto;font-size:14px;color:var(--muted)}
+.langsw a{font-weight:700}
+.breadcrumbs{font-size:14px;color:var(--muted);margin:16px 0 4px}
+.breadcrumbs a{color:var(--muted)}
+h1{font-size:34px;line-height:1.2;margin:.3em 0}
+h2{font-size:25px;margin-top:1.7em}
+h3{font-size:19px}
+.tldr{background:var(--panel);border:1px solid var(--border);border-left:5px solid var(--acc);
+border-radius:var(--radius);padding:18px 22px;margin:22px 0;box-shadow:0 1px 3px rgba(20,40,60,.05)}
+.tldr b.winner{color:var(--ok)}
+.hero{background:linear-gradient(135deg,#0e7490,#155e75);color:#fff;border-radius:0;
+padding:44px 0 38px;margin-bottom:26px}
+.hero h1{color:#fff;margin-top:0}
+.hero p{color:#d7eef5;font-size:18px;max-width:640px}
+.cta-box{background:#fff7e8;border:1px solid #f3d9a4;border-radius:var(--radius);
+padding:20px;margin:26px 0;display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between}
+.btn{display:inline-block;padding:13px 28px;border-radius:10px;font-weight:800;font-size:16px;color:#fff;
+background:var(--acc);white-space:nowrap}
+.btn.gold{background:var(--acc2);color:#221600}
+.btn:hover{text-decoration:none;filter:brightness(1.08)}
+table{border-collapse:collapse;width:100%;margin:20px 0;font-size:15.5px;background:var(--panel)}
+th,td{border:1px solid var(--border);padding:10px 13px;text-align:left;vertical-align:top}
+thead th{background:#eef4f8}
+tbody tr:nth-child(even){background:#fbfdfe}
+td.win{color:var(--ok);font-weight:700}
+td.lose{color:var(--muted)}
+.price-tag{font-weight:800;color:var(--acc);font-size:18px}
+.pros-cons{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0}
+@media(max-width:640px){.pros-cons{grid-template-columns:1fr}h1{font-size:27px}}
+.pros,.cons{border-radius:var(--radius);padding:16px 20px;background:var(--panel);border:1px solid var(--border)}
+.pros{border-top:4px solid var(--ok)}
+.cons{border-top:4px solid var(--bad)}
+.pros h3,.cons h3{margin-top:0;font-size:16px}
+.pros ul,.cons ul{margin:8px 0 0;padding-left:20px}
+.faq{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:6px 22px;margin:22px 0}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;margin:22px 0}
+.card{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);padding:18px 20px}
+.card h3{margin:0 0 6px;font-size:17px}
+.card p{margin:0;font-size:14.5px;color:var(--muted)}
+.card .price-tag{font-size:16px}
+.stars{color:var(--acc2);letter-spacing:2px}
+.note{font-size:14px;color:var(--muted)}
+.verdict{background:#ecfdf5;border:1px solid #a7e8cd;border-radius:var(--radius);padding:18px 22px;margin:26px 0}
+.ad-slot{margin:26px 0;min-height:40px}
+.disclosure{font-size:13px;color:var(--muted);border-top:1px dashed var(--border);margin-top:30px;padding-top:10px}
+footer.site{margin-top:44px;border-top:1px solid var(--border);background:var(--panel);padding:24px 0 30px;font-size:14px;color:var(--muted)}
+footer.site nav{display:flex;gap:16px;flex-wrap:wrap;margin-top:8px}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0}
+.badge{background:var(--panel);border:1px solid var(--border);border-radius:999px;padding:5px 14px;font-size:13.5px;font-weight:600}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Калькулятор такси Стамбула — 2026", "datePublished": "2026-09-21", "dateModified": "2026-09-21", "inLanguage": "ru-RU", "author": {"@type": "Organization", "name": "TransferGuide Turkey"}, "url": "https://transfers-turkey.vercel.app/taxi-calculator/"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://transfers-turkey.vercel.app/"}, {"@type": "ListItem", "position": 2, "name": "Гайды", "item": "https://transfers-turkey.vercel.app/guides/"}, {"@type": "ListItem", "position": 3, "name": "Калькулятор такси Стамбула — 2026", "item": "https://transfers-turkey.vercel.app/taxi-calculator/"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Работает ли счётчик в такси из IST?", "acceptedAnswer": {"@type": "Answer", "text": "Нет. В аэропорту Стамбул действуют официальные фикс-тарифы: Таксим 2 100₺, Султанахмет 2 600₺, Кадыкёй 3 000₺, до SAW 3 800₺. «Поехать по счётчику» из IST — предложение от неофициального извозчика."}}, {"@type": "Question", "name": "Сколько стоит такси из SAW в Таксим?", "acceptedAnswer": {"@type": "Answer", "text": "По счётчику: 65.40₺ посадка + 43.56₺/км × ~40 км + мост 47₺ ≈ 1 850–1 900₺ (~€36). Ночью и в пробках дороже."}}, {"@type": "Question", "name": "Что дешевле — такси или трансфер?", "acceptedAnswer": {"@type": "Answer", "text": "Для 1–2 пассажиров из IST сопоставимо. Для 3–6 человек трансфер почти всегда дешевле: €45–70 за машину целиком против двух посадок в такси."}}, {"@type": "Question", "name": "Есть ли ночной тариф?", "acceptedAnswer": {"@type": "Answer", "text": "В Стамбуле ночного коэффициента нет. Но Uber/Bolt применяют surge в часы пик и дождь — официальный такси и трансфер с фикс-ценой от этого защищены."}}]}</script>
+</head>
+<body>
+<header class="site"><div class="wrap">
+<div class="logo">Transfer<span>Guide</span> Turkey</div>
+<nav><a href="/">Главная</a><a href="/routes/">Маршруты</a><a href="/compare/">Сравнения</a><a href="/guides/">Гайды</a></nav>
+<div class="langsw"><a href="/en/taxi-calculator/">EN</a></div>
+</div></header>
+<main class="wrap">
+
+<div class="breadcrumbs"><a href="https://transfers-turkey.vercel.app/">Главная</a> › <a href="/guides/">Гайды</a></div>
+<h1>Калькулятор такси Стамбула — 2026</h1>
+<p>Сколько будет стоить такси из аэропорта? В IST счётчики официально отключены — фикс-тарифы по районам. В SAW работает счётчик: посадка 65.40₺ + 43.56₺/км плюс платная дорога (мост FSM 47₺ или туннель Евразия 225₺). Выберите аэропорт и направление — калькулятор покажет цену такси и фикс-цену трансфера для сравнения.</p>
+<div class="tldr" id="taxi-calc">
+<label>Аэропорт:
+<select id="calcAp"><option value="ist">Стамбул (IST) — фикс-тариф</option><option value="saw">Сабиха Гёкчен (SAW) — счётчик</option></select></label>
+<label style="margin-left:12px">Куда едете: <select id="calcDest"></select></label>
+<div id="sawBox" style="display:none;margin-top:10px">
+<label>Расстояние, км: <input type="number" id="calcKm" min="5" max="120" value="40" style="width:80px"></label>
+<label style="margin-left:12px">Платная дорога: <select id="calcToll"></select></label>
+</div>
+<p style="margin:14px 0 6px"><b>Такси (расчёт):</b> <span id="calcTaxi" class="price-tag">—</span>
+&nbsp;·&nbsp; <b>Трансфер AvitoVIP (фикс, машина до 6 чел.):</b> <span id="calcTransfer" class="price-tag">—</span></p>
+<p class="note">Тарифы сентября 2026. Курс ~52₺/€. Turquoise +15%, Black +65%. Минимальная цена SAW 210₺.</p>
+</div>
+<script>
+(function(){
+  var IST=[["Таксим / Шишли / Бешикташ", 2100, 45], ["Султанахмет / Фатих", 2600, 45], ["Бейоглу", 2600, 45], ["Кадыкёй (Азия)", 3000, 60], ["Аэропорт SAW", 3800, 70]], SAW=[["Таксим / Бейоглу", 40, 65], ["Фатих / Султанахмет", 42, 65], ["Кадыкёй (Азия)", 25, 55], ["Аэропорт IST", 90, 70]], TOLLS=[["Мост Фатиха (FSM) — 47₺", 47], ["Туннель Евразия — 225₺", 225], ["Без платных дорог", 0]], RATE=52;
+  var ap=document.getElementById('calcAp'), dest=document.getElementById('calcDest'),
+      km=document.getElementById('calcKm'), toll=document.getElementById('calcToll'),
+      sawBox=document.getElementById('sawBox');
+  toll.innerHTML=TOLLS.map(function(t,i){return '<option value="'+i+'">'+t[0]+'</option>';}).join('');
+  function fillDest(){
+    var arr = ap.value==='ist' ? IST : SAW;
+    dest.innerHTML = arr.map(function(d,i){return '<option value="'+i+'">'+d[0]+'</option>';}).join('');
+    sawBox.style.display = ap.value==='saw' ? 'block' : 'none';
+  }
+  function calc(){
+    var i=+dest.value, tx=document.getElementById('calcTaxi'), tr=document.getElementById('calcTransfer');
+    if(ap.value==='ist'){
+      var f=IST[i];
+      tx.textContent=f[1]+'\u20ba (~\u20ac'+Math.round(f[1]/RATE)+')';
+      tr.textContent='\u20ac'+f[2];
+    }else{
+      var s=SAW[i];
+      if(!km.value || +km.value<=0) km.value=s[1];
+      var fare=Math.round(65.40+(+km.value)*43.56+TOLLS[+toll.value][1]);
+      if(fare<210)fare=210;
+      tx.textContent=fare+'\u20ba (~\u20ac'+Math.round(fare/RATE)+')';
+      tr.textContent='\u20ac'+s[2];
+    }
+  }
+  ap.addEventListener('change',function(){fillDest();calc();});
+  dest.addEventListener('change',function(){
+    if(ap.value==='saw') km.value=SAW[+dest.value][1];
+    calc();
+  });
+  km.addEventListener('input',calc); toll.addEventListener('change',calc);
+  fillDest();calc();
+})();
+</script>
+<div class="cta-box"><div class="info"><b>Фиксированная цена · оплата после поездки · встреча с табличкой</b><br><span class="note">Бесплатная отмена за 24 часа. Средний рейтинг 4.9 из 760+ отзывов.</span></div><a class="btn gold" href="https://kjuzv.com/g/02swkf5uv6b36ae7aae7babf13962c/" rel="nofollow sponsored noopener" target="_blank">Забронировать трансфер →</a></div>
+<h2>Как считается цена</h2>
+<div class="faq"><h3>Работает ли счётчик в такси из IST?</h3><p>Нет. В аэропорту Стамбул действуют официальные фикс-тарифы: Таксим 2 100₺, Султанахмет 2 600₺, Кадыкёй 3 000₺, до SAW 3 800₺. «Поехать по счётчику» из IST — предложение от неофициального извозчика.</p><h3>Сколько стоит такси из SAW в Таксим?</h3><p>По счётчику: 65.40₺ посадка + 43.56₺/км × ~40 км + мост 47₺ ≈ 1 850–1 900₺ (~€36). Ночью и в пробках дороже.</p><h3>Что дешевле — такси или трансфер?</h3><p>Для 1–2 пассажиров из IST сопоставимо. Для 3–6 человек трансфер почти всегда дешевле: €45–70 за машину целиком против двух посадок в такси.</p><h3>Есть ли ночной тариф?</h3><p>В Стамбуле ночного коэффициента нет. Но Uber/Bolt применяют surge в часы пик и дождь — официальный такси и трансфер с фикс-ценой от этого защищены.</p></div>
+<div class="cta-box"><div class="info"><b>Фиксированная цена · оплата после поездки · встреча с табличкой</b><br><span class="note">Бесплатная отмена за 24 часа. Средний рейтинг 4.9 из 760+ отзывов.</span></div><a class="btn" href="https://kjuzv.com/g/02swkf5uv6b36ae7aae7babf13962c/" rel="nofollow sponsored noopener" target="_blank">Забронировать трансфер →</a></div>
+
+<div class="ad-slot"><script async="async" data-cfasync="false" src="https://pl31204790.profitableratecpmnetwork.com/1ad4c9f801bd5cf3a2cd4e2962bec64d/invoke.js"></script><div id="container-1ad4c9f801bd5cf3a2cd4e2962bec64d"></div></div><script src="https://pl31211381.profitableratecpmnetwork.com/10/18/42/1018425954b7175a48946187d2289f54.js"></script>
+<div class="disclosure">Раскрытие: мы можем получать комиссию при бронировании по ссылкам на этом сайте — для вас цена не меняется. Это не влияет на оценки: все сравнения основаны на опубликованных ценах и фактах.</div>
+</main>
+<footer class="site"><div class="wrap">
+<div>© 2026 TransferGuide Turkey — независимый гид по трансферам в Турции.</div>
+<nav><a href="/">Главная</a><a href="/routes/">Маршруты</a><a href="/compare/">Сравнения</a><a href="/guides/">Гайды</a></nav>
+</div></footer>
+</body></html>

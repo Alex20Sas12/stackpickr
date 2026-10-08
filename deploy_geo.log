@@ -1,0 +1,52 @@
+Vercel CLI 59.23.2 (Node.js 24.16.0)
+Deploying stackpickr
+Uploading [--------------------] (0.0B/248.8KB)
+Uploading [=====---------------] (63.7KB/248.8KB)
+Uploading [==========----------] (127.9KB/248.8KB)
+Uploading [===============-----] (194.3KB/248.8KB)
+Uploading [====================] (248.8KB/248.8KB)
+  Inspect         https://vercel.com/keyt9750-7169s-projects/stackpickr/399HNw2fvx7yrfMH545dv91n9Z5b
+  Production      https://stackpickr-j0kun57rr-keyt9750-7169s-projects.vercel.app
+Building…
+Building…
+Running build in Washington, D.C., USA (East) – iad1
+Build machine configuration: 2 cores, 8 GB
+Retrieving list of deployment files...
+Previous build caches not available.
+Downloading 55 deployment files...
+[2K[1A[2K[G  Production      https://stackpickr-j0kun57rr-keyt9750-7169s-projects.vercel.app
+Completing…
+▲ Aliased         https://stackpickr.vercel.app
+{
+  "status": "ok",
+  "deployment": {
+    "id": "dpl_399HNw2fvx7yrfMH545dv91n9Z5b",
+    "url": "https://stackpickr-j0kun57rr-keyt9750-7169s-projects.vercel.app",
+    "inspectorUrl": "https://vercel.com/keyt9750-7169s-projects/stackpickr/399HNw2fvx7yrfMH545dv91n9Z5b",
+    "readyState": "READY",
+    "target": "production",
+    "deploymentApiUrl": "https://api.vercel.com/v13/deployments/dpl_399HNw2fvx7yrfMH545dv91n9Z5b",
+    "buildMachine": {
+      "cores": 2,
+      "memory": 8192,
+      "machine": "basic",
+      "selectionType": "fixed",
+      "selectionSource": "plan-default"
+    }
+  },
+  "message": "Deployment stackpickr-j0kun57rr-keyt9750-7169s-projects.vercel.app ready.",
+  "next": [
+    {
+      "command": "vercel curl https://stackpickr-j0kun57rr-keyt9750-7169s-projects.vercel.app",
+      "when": "Verify deployment, including when Deployment Protection is enabled"
+    },
+    {
+      "command": "vercel inspect stackpickr-j0kun57rr-keyt9750-7169s-projects.vercel.app",
+      "when": "Inspect deployment"
+    },
+    {
+      "command": "vercel deploy --prod",
+      "when": "Promote to production"
+    }
+  ]
+}

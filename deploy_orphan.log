@@ -1,0 +1,44 @@
+Vercel CLI 59.25.0 (Node.js 24.16.0)
+Deploying stackpickr
+Uploading [--------------------] (0.0B/6.9KB)
+Uploading [====================] (6.9KB/6.9KB)
+  Inspect         https://vercel.com/keyt9750-7169s-projects/stackpickr/6QHB72ov9ekRqxVW8586Emcm81Pj
+  Production      https://stackpickr-m01xp5f7h-keyt9750-7169s-projects.vercel.app
+Building…
+Building…
+[2K[1A[2K[G  Production      https://stackpickr-m01xp5f7h-keyt9750-7169s-projects.vercel.app
+Completing…
+▲ Aliased         https://stackpickr.vercel.app
+{
+  "status": "ok",
+  "deployment": {
+    "id": "dpl_6QHB72ov9ekRqxVW8586Emcm81Pj",
+    "url": "https://stackpickr-m01xp5f7h-keyt9750-7169s-projects.vercel.app",
+    "inspectorUrl": "https://vercel.com/keyt9750-7169s-projects/stackpickr/6QHB72ov9ekRqxVW8586Emcm81Pj",
+    "readyState": "READY",
+    "target": "production",
+    "deploymentApiUrl": "https://api.vercel.com/v13/deployments/dpl_6QHB72ov9ekRqxVW8586Emcm81Pj",
+    "buildMachine": {
+      "cores": 2,
+      "memory": 8192,
+      "machine": "basic",
+      "selectionType": "fixed",
+      "selectionSource": "plan-default"
+    }
+  },
+  "message": "Deployment stackpickr-m01xp5f7h-keyt9750-7169s-projects.vercel.app ready.",
+  "next": [
+    {
+      "command": "vercel curl https://stackpickr-m01xp5f7h-keyt9750-7169s-projects.vercel.app",
+      "when": "Verify deployment, including when Deployment Protection is enabled"
+    },
+    {
+      "command": "vercel inspect stackpickr-m01xp5f7h-keyt9750-7169s-projects.vercel.app",
+      "when": "Inspect deployment"
+    },
+    {
+      "command": "vercel deploy --prod",
+      "when": "Promote to production"
+    }
+  ]
+}

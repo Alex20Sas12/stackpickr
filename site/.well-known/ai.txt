@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Static HTML site: all content is in the raw HTML, no JavaScript required to read it.
+# Machine-readable copies: /llms.txt, /ai/summary.json, /ai/faq.json, /feed.xml

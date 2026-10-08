@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VPS True-Cost Calculator (2026) — Free | StackPickr</title>
+<meta name="description" content="Free calculator: what a cheap VPS really costs with backups, and how many sysadmin hours before managed hosting ($11/mo) is cheaper. Verified Sept 2026 prices.">
+<meta name="google-site-verification" content="dHzB4J-n1_k8XEQgWt9VE2OCG2gO8yiE9adtZGUcN-s">
+<link rel="canonical" href="https://stackpickr.vercel.app/tools/vps-cost-calculator/">
+<meta property="og:title" content="VPS True-Cost Calculator (2026) — Free | StackPickr">
+<meta property="og:description" content="Free calculator: what a cheap VPS really costs with backups, and how many sysadmin hours before managed hosting ($11/mo) is cheaper. Verified Sept 2026 prices.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://stackpickr.vercel.app/tools/vps-cost-calculator/">
+<meta property="og:image" content="https://stackpickr.vercel.app/img/og-default.png">
+<meta property="og:site_name" content="StackPickr">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/style.css">
+<link rel="alternate" type="application/rss+xml" title="StackPickr Feed" href="https://stackpickr.vercel.app/feed.xml">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "VPS True-Cost Calculator", "description": "Real VPS cost with backups vs managed hosting break-even", "author": {"@type": "Organization", "name": "StackPickr Editorial Team"}, "publisher": {"@type": "Organization", "name": "StackPickr"}, "dateModified": "2026-09-22", "mainEntityOfPage": "https://stackpickr.vercel.app/tools/vps-cost-calculator/"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://stackpickr.vercel.app/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://stackpickr.vercel.app/guides/"}, {"@type": "ListItem", "position": 3, "name": "VPS Cost Calculator"}]}</script>
+</head><header class="site"><div class="wrap"><a class="logo" href="/">⚡ StackPickr</a><nav><a href="/">Home</a><a href="/hosting/">Hosting</a><a href="/affiliate-software/">Affiliate Software</a><a href="/guides/">Guides</a></nav></div><div class="wrap breadcrumbs"><a href="/">Home</a> › <a href="/guides/">Guides</a> › VPS Cost Calculator</div></header><main class="wrap">
+<h1>VPS True-Cost Calculator (2026)</h1>
+<p class="updated">Prices verified 2026-09-22 against official pricing pages. Backups add +20% at most providers (free weekly at is*hosting).</p>
+<p>The sticker price is not the real price. Pick a provider and term below to see what a VPS
+actually costs with backups, and what managed hosting would cost instead of your sysadmin time.</p>
+<div class="tldr" id="vps-calc">
+<label>Provider: <select id="vcProv"></select></label>
+<label style="margin-left:12px">Backups: <select id="vcBk">
+<option value="0.2">Paid (+20%)</option><option value="0">Included free</option></select></label>
+<label style="margin-left:12px">Your hourly rate: $<input type="number" id="vcRate" value="25" min="0" style="width:70px"></label>
+<p style="margin:14px 0 6px"><b>Real monthly cost:</b> <span id="vcTotal" class="price">—</span>
+&nbsp;·&nbsp; <b>Break-even vs Cloudways managed ($11/mo):</b> <span id="vcBreak" class="price">—</span></p>
+<p class="note">Managed cloud (Cloudways entry $11/mo) includes backups, staging, patches and 24/7 support.
+If managing the box yourself costs more than ~2h/month at your rate, managed is cheaper in real money.</p>
+</div>
+<script>
+(function(){
+  var P=[["Vultr (1GB IPv4)", 6.0, "paid"], ["Hetzner CX22 (4GB)", 3.6, "paid"], ["DigitalOcean (1GB)", 6.0, "paid"], ["Contabo (6GB)", 5.25, "paid"], ["is*hosting (1GB NVMe)", 5.94, "free"], ["Linode Nanode (1GB)", 5.0, "paid"], ["Cloudways managed (1GB)", 11.0, "free"]];
+  var prov=document.getElementById('vcProv'), bk=document.getElementById('vcBk'),
+      rate=document.getElementById('vcRate');
+  prov.innerHTML=P.map(function(p,i){return '<option value="'+i+'">'+p[0]+'</option>';}).join('');
+  function sync(){
+    var p=P[+prov.value];
+    if(p[2]==='free'){bk.value='0';bk.disabled=true;}else{bk.disabled=false;}
+    calc();
+  }
+  function calc(){
+    var p=P[+prov.value], base=p[1], b=parseFloat(bk.value);
+    var total=base*(1+b);
+    document.getElementById('vcTotal').textContent='$'+total.toFixed(2)+'/mo';
+    var delta=11-total;
+    var be=document.getElementById('vcBreak');
+    if(delta<=0){be.textContent='managed already cheaper';}
+    else{
+      var r=Math.max(1,parseFloat(rate.value)||1);
+      be.textContent='more than '+(delta/r).toFixed(1)+' h/mo of server work → managed wins';
+    }
+  }
+  prov.addEventListener('change',sync); bk.addEventListener('change',calc); rate.addEventListener('input',calc);
+  sync();
+})();
+</script>
+<h2>How to read the result</h2>
+<ul class="check">
+<li><b>Real monthly cost</b> = entry price + backups (+20% at Vultr/Hetzner/DigitalOcean/Contabo/Linode; included at is*hosting and Cloudways).</li>
+<li><b>Break-even</b> = how many hours/month of server management make a raw VPS more expensive than $11/mo managed Cloudways, at your hourly rate.</li>
+<li>Promo prices (Hostinger-style) are first-term only — always check the 24-month renewal price.</li>
+</ul>
+<div class="ad-slot"><script async="async" data-cfasync="false" src="https://pl31188985.profitableratecpmnetwork.com/c1fa3cf15028a15cfeb5d3f0c29d10d2/invoke.js"></script><div id="container-c1fa3cf15028a15cfeb5d3f0c29d10d2"></div></div>
+<p class="discl">Disclosure: We may earn a commission when you buy through links on this site, at no extra cost to you. This does not affect our rankings — every comparison is based on published specs and pricing.</p>
+</main><footer class="site"><div class="wrap">
+<div>
+<b style="color:var(--text)">StackPickr</b><br>
+Independent software comparisons. We test, research and compare so you don't have to.<br>
+Need Excel templates for your business? Visit <a href="https://shablony-pro.vercel.app/?utm_source=stackpickr&utm_medium=referral">TemplatesPRO</a>.
+</div>
+<div>
+<a href="/hosting/">Hosting comparisons</a> · <a href="/affiliate-software/">Affiliate software</a> · <a href="/guides/">Guides</a> · <a href="/about/">About & methodology</a><br>
+© 2026 StackPickr
+</div>
+</div></footer></html>

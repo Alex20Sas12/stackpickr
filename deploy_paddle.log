@@ -1,0 +1,52 @@
+Vercel CLI 59.25.0 (Node.js 24.16.0)
+Deploying stackpickr
+Uploading [--------------------] (0.0B/408.2KB)
+Uploading [=====---------------] (104.5KB/408.2KB)
+Uploading [==========----------] (208.4KB/408.2KB)
+Uploading [===============-----] (307.5KB/408.2KB)
+Uploading [====================] (408.2KB/408.2KB)
+  Inspect         https://vercel.com/keyt9750-7169s-projects/stackpickr/DCnTHA6GLV9H1rbPvhtyr5o7dg9n
+  Production      https://stackpickr-p3p09wbcp-keyt9750-7169s-projects.vercel.app
+Building…
+Building…
+Running build in Washington, D.C., USA (East) – iad1
+Build machine configuration: 2 cores, 8 GB
+Retrieving list of deployment files...
+Previous build caches not available.
+Downloading 60 deployment files...
+[2K[1A[2K[G  Production      https://stackpickr-p3p09wbcp-keyt9750-7169s-projects.vercel.app
+Completing…
+▲ Aliased         https://stackpickr.vercel.app
+{
+  "status": "ok",
+  "deployment": {
+    "id": "dpl_DCnTHA6GLV9H1rbPvhtyr5o7dg9n",
+    "url": "https://stackpickr-p3p09wbcp-keyt9750-7169s-projects.vercel.app",
+    "inspectorUrl": "https://vercel.com/keyt9750-7169s-projects/stackpickr/DCnTHA6GLV9H1rbPvhtyr5o7dg9n",
+    "readyState": "READY",
+    "target": "production",
+    "deploymentApiUrl": "https://api.vercel.com/v13/deployments/dpl_DCnTHA6GLV9H1rbPvhtyr5o7dg9n",
+    "buildMachine": {
+      "cores": 2,
+      "memory": 8192,
+      "machine": "basic",
+      "selectionType": "fixed",
+      "selectionSource": "plan-default"
+    }
+  },
+  "message": "Deployment stackpickr-p3p09wbcp-keyt9750-7169s-projects.vercel.app ready.",
+  "next": [
+    {
+      "command": "vercel curl https://stackpickr-p3p09wbcp-keyt9750-7169s-projects.vercel.app",
+      "when": "Verify deployment, including when Deployment Protection is enabled"
+    },
+    {
+      "command": "vercel inspect stackpickr-p3p09wbcp-keyt9750-7169s-projects.vercel.app",
+      "when": "Inspect deployment"
+    },
+    {
+      "command": "vercel deploy --prod",
+      "when": "Promote to production"
+    }
+  ]
+}

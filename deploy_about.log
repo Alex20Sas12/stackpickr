@@ -1,0 +1,50 @@
+Vercel CLI 59.25.0 (Node.js 24.16.0)
+Deploying stackpickr
+Uploading [--------------------] (0.0B/276.9KB)
+Uploading [=====---------------] (73.7KB/276.9KB)
+Uploading [==========----------] (143.3KB/276.9KB)
+Uploading [===============-----] (209.4KB/276.9KB)
+Uploading [====================] (276.9KB/276.9KB)
+  Inspect         https://vercel.com/keyt9750-7169s-projects/stackpickr/AZLkbYHWcCKY84L4qN7ci4FMNwhz
+  Production      https://stackpickr-1wqu0iy3k-keyt9750-7169s-projects.vercel.app
+Building…
+Building…
+Running build in Washington, D.C., USA (East) – iad1
+Build machine configuration: 2 cores, 8 GB
+Retrieving list of deployment files...
+[2K[1A[2K[G  Production      https://stackpickr-1wqu0iy3k-keyt9750-7169s-projects.vercel.app
+Completing…
+▲ Aliased         https://stackpickr.vercel.app
+{
+  "status": "ok",
+  "deployment": {
+    "id": "dpl_AZLkbYHWcCKY84L4qN7ci4FMNwhz",
+    "url": "https://stackpickr-1wqu0iy3k-keyt9750-7169s-projects.vercel.app",
+    "inspectorUrl": "https://vercel.com/keyt9750-7169s-projects/stackpickr/AZLkbYHWcCKY84L4qN7ci4FMNwhz",
+    "readyState": "READY",
+    "target": "production",
+    "deploymentApiUrl": "https://api.vercel.com/v13/deployments/dpl_AZLkbYHWcCKY84L4qN7ci4FMNwhz",
+    "buildMachine": {
+      "cores": 2,
+      "memory": 8192,
+      "machine": "basic",
+      "selectionType": "fixed",
+      "selectionSource": "plan-default"
+    }
+  },
+  "message": "Deployment stackpickr-1wqu0iy3k-keyt9750-7169s-projects.vercel.app ready.",
+  "next": [
+    {
+      "command": "vercel curl https://stackpickr-1wqu0iy3k-keyt9750-7169s-projects.vercel.app",
+      "when": "Verify deployment, including when Deployment Protection is enabled"
+    },
+    {
+      "command": "vercel inspect stackpickr-1wqu0iy3k-keyt9750-7169s-projects.vercel.app",
+      "when": "Inspect deployment"
+    },
+    {
+      "command": "vercel deploy --prod",
+      "when": "Promote to production"
+    }
+  ]
+}
