@@ -1,6 +1,6 @@
 # StackPickr (cmpsite) — State
 
-Обновлено: 14.10.2026 17:50 МСК
+Обновлено: 14.10.2026 18:15 МСК
 
 ## Проект
 Статический сайт сравнений хостинга/софта с affiliate-монетизацией + Adsterra.
@@ -26,21 +26,23 @@
 | Cloudways-CTA → голый сайт: 8 страниц без комиссионной ссылки | HIGH | ✅ `ALT_MONETISE={cloudways:ishosting}` в `cta_box()` |
 | Хаб /hosting/ без партnёрского CTA | HIGH | ✅ `cta_box('ishosting')` |
 | 26/28 падающих кронов системы: `model=None` → 503 Gemini structure_limit | HIGH (системный) | ⚠️ НЕ ЧИНИЛ — затронет все проекты. Рецепт: `hermes cron edit <id> --provider custom:frontierspace --model gpt-6-astra` |
-| Индексация 5/47 URL (главный рычаг денег) | HIGH | ⚠️ 11/48 (14.10 17:45). Цель 21.10: ≥25 |
+| Индексация 5/47 URL (главный рычаг денег) | HIGH | ⚠️ **15/48** (14.10 18:10). Цель 21.10: ≥25 |
 | НЕТ аналитики — конверсию мерить нельзя, фаза 3B мертва | HIGH | ⏳ GoatCounter/Plausible требуют регистрации с личной почтой |
-| Cloudways affiliate на модерации с 09.10 | MEDIUM | ⏳ Апрува нет; крон `471fb4e0b8b6` следит; читатель получает alt-CTA ishosting |
+| Cloudways affiliate на модерации с 09.10 | MEDIUM | ✅ **АПРУВЕН 13.10**, ссылка вшита на 9 страниц |
 | Bing/Google ping-эндпоинты мёртвы (410/deprecated) | LOW | ℹ️ не тратить время; IndexNow + GSC покрывают |
 
 ## Кроны (фактически, 14.10)
+**3 крона переведены на no_agent-скрипты без LLM** (health/traffic/report) — экономит LLM-сеть
+и делает их детерминированными. Остальные 4 — на живом `hcnsec` (проверено зондом: HTTP 200).
 | ID | Расписание | Что | Денежный след |
 |---|---|---|---|
-| `7097de8b595b` health | 8:00/20:00 | **no_agent-скрипт** `stackpickr_health.py` — без LLM | сайт жив + нет утечек монetизации |
-| `4a2686df505a` | 10:10 ежедневно | GSC IndexNow, квота 2/сайт/день | URL в индексе → клик |
-| `471fb4e0b8b6` | 10:00/18:00 | апрув Cloudways (почта + панель) | ссылка Cloudways $50–125/продажа |
-| `ed8133ecd8db` content | 9:00 | дыра из `gsc_queries.csv` → страница с партnёркой → деплой | +1 страница/день |
-| `a8ee9e6b505e` traffic | 12:00 | `gsc_index_queue.py` + IndexNow | ≥25 URL в индексе к 21.10 |
-| `4e61f07dc6f8` report | 20:00 | сводка в вечерний дайджест |
-| `a7a4d645691d` | вс 12:30 | SEO-backlog (источник данных — `geo_audit.py`) |
+| `7097de8b595b` health | 8:00/20:00 | **no_agent** `stackpickr_health.py` | сайт жив + нет утечек монетизации |
+| `a8ee9e6b505e` traffic | 12:00 | **no_agent** `stackpickr_traffic.py` (GSC + IndexNow) | растит индексацию |
+| `4e61f07dc6f8` report | 20:00 | **no_agent** `stackpickr_report.py` (4 реальных цифры) | вечерняя сводка |
+| `ed8133ecd8db` content | 9:00 | hcnsec: дыра из `gsc_queries.csv` → страница → деплой | +1 страница/день |
+| `4a2686df505a` | 10:10 ежедневно | hcnsec: GSC IndexNow, квота 2/сайт/день | URL в индексе → клик |
+| `471fb4e0b8b6` | 10:00/18:00 | hcnsec: апрув Cloudways (цель выполнена, мониторит повторно) | Cloudways $30+7% |
+| `a7a4d645691d` | вс 12:30 | hcnsec: SEO-backlog (данные — `geo_audit.py`) |
 
 **Почему health без LLM (решение 14.10):** LLM-сеть мертва по всем связкам —
 `model=None` → 503 Gemini structure_limit; `custom` → группа без кредов; `q`/qwen → не имя
@@ -58,10 +60,13 @@
 | AvitoVIP | Admitad `kjuzv.com/g/02swkf5...` | $3/подтв. продажа | ✅ live |
 | Mural | — (только обзор) | — | обзор, не CTA |
 | Tapfiliate | Admitad `ad.admitad.com/g/1sp3lr...` | ? | ⚠️ Admitad-2FA заблокирован 29.09, поддержка молчит |
-| Cloudways | свой аккаунт, Hybrid $50–125 | — | ⏳ модерация с 09.10; читатель → alt-CTA ishosting |
+| Cloudways | **`cloudways.com/en/?id=2216778`** | **$30 upfront + 7% recurring lifetime** | ✅ **АПРУВ 13.10**, live 200, вшита на 9 страниц |
 
-**Cloudways не блокируется и не удаляется** (R7). Пока нет ссылки, `ALT_MONETISE`
-отдаёт читателю партnёрский клик на ishosting — комиссия не теряется.
+**Cloudways АПРОВАН 13.10** (письмо 3754 от Hassaan Zaheer, 15:20 UTC): Hybrid tier,
+**$30 upfront + 7% recurring lifetime**, промо SUMMER404 (40% скидка 4 мес) для рефералов.
+Ссылка `https://www.cloudways.com/en/?id=2216778` проверена: HTTP 200, 5 совпадений id= на странице.
+Вшита через `data/config.json links.cloudways.href`; `ALT_MONETISE={cloudways:ishosting}` остался
+как страховка на случай, если Cloudways вернётся к голым ссылкам.
 
 ## Юнит-экономика
 - Клик → партnёрку: CR 0.5–3%.
@@ -87,9 +92,8 @@ Workflow `.github/workflows/deploy.yml` смотрит на `main` → не ср
 ## Next actions
 1. [сегодня] **Аналитика** (GoatCounter или Plausible, free). Без неё фаза 3B мертва.
    Требуется регистрация с личной почтой → **спросить владельца**.
-2. [21.10] Цель: **≥25 URL** в индексе. Крон `a8ee9e6b505e` + `4a2686df505a` кладут по 2 URL/день.
-3. [21.10] Цель: **1-я партnёрская продажа**. Контроль по почте keyt9750 (ishosting),
-   alexford0289 (Cloudways/PayPal).
+2. [21.10] Цель: **≥25 URL** в индексе (сейчас 15). Крон `a8ee9e6b505e` + `4a2686df505a`.
+3. [21.10] Цель: **1-я партnёрская продажа**. Письма: keyt9750 (ishosting), alexford0289 (Cloudways/PayPal).
 
 ## Чего НЕ делать
 - Не деплоить с корня репо (404 на всём сайте). Только `deploy.py` / `vercel deploy site`.
@@ -121,3 +125,21 @@ Workflow `.github/workflows/deploy.yml` смотрит на `main` → не ср
 - `part(slot)` берёт URL по слоту (`b_url`), не по имени продукта.
 - `python3` = заглушка MS Store; только `python`.
 - `cronjob_manage` update не умеет менять model/provider — только `hermes cron edit`.
+
+## Найдено 14.10 (днем)
+**CLOUDWAYS АПРОВАН 13.10.** Письмо 3754 «Welcome to the Cloudways Affiliate Program» от
+Hassaan Zaheer, 15:20 UTC. Hybrid tier: **$30 upfront за продажу + 7% recurring** на всё время
+жизни реферала в Cloudways. Промо SUMMER404 — 40% скидки 4 мес для рефералов.
+Это меняет юнит-экономику проекта: теперь основная ставка — Cloudways ($30+recurring),
+а не ishosting ($0.05–0.15/клик).
+
+Ложная тревога: health.py не знал, что `cloudways.com/en/?id=` — партnёрская ссылка, и после
+вставки ссылки мигал «8 pages без монетизации». Добавил маркер в `AFF` → 0 утечек.
+
+## Кроны: какой провайдер реально держится (14.10)
+- `hcnsec` (api.hcnsec.cn, ключ из env `HCNSEC_API_KEY`) — **жив**, HTTP 200, `model=auto`.
+  Это основной провайдер этого чата. На него закреплены 4 LLM-крона.
+- `custom:frontierspace` + `gpt-6-astra` — **Cloudflare 502** (origin перегружен).
+- `omni` (:20128) — мёртв (502). `custom` без `:frontierspace` — группа без кредов.
+- `model=None` — идёт на основной → 503 Gemini structure_limit. НЕ ОСТАВЛЯТЬ.
+- Правило: скриптовые задачи (health/traffic/report) — `--no-agent --script`, LLM не нужен вообще.
