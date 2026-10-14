@@ -119,6 +119,8 @@ def head(p):
     ld_html = "\n".join(f'<script type="application/ld+json">{json.dumps(x, ensure_ascii=False)}</script>' for x in ld)
     gsc = CFG.get("gsc_meta")
     gsc_tag = f'<meta name="google-site-verification" content="{gsc}">' if gsc else ""
+    # privacy-friendly page-view analytics; excluded on /privacy/ so we honour our own promise
+    gc = "" if p["path"] == "/privacy/" else GC_TAG
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -127,6 +129,7 @@ def head(p):
 <title>{e(title)}</title>
 <meta name="description" content="{e(desc)}">
 {gsc_tag}
+{gc}
 <link rel="canonical" href="{url}">
 <meta property="og:title" content="{e(title)}">
 <meta property="og:description" content="{e(desc)}">

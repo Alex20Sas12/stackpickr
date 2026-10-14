@@ -529,7 +529,11 @@ def privacy():
 <li><b>Affiliate links.</b> Some outbound links are affiliate links (marked by our disclosure). When you click them, the merchant's site may record that you arrived from StackPickr.</li>
 </ul>
 <h2>What we don't do</h2>
-<ul><li>No analytics trackers of our own</li><li>No sale of personal data</li><li>No email collection</li></ul>
+<ul><li>No cookies, no personal identifiers, no device fingerprinting</li><li>No sale of personal data</li><li>No email collection</li></ul>
+<h2>Analytics</h2>
+<p>This site uses <a href="https://www.goatcounter.com/" rel="noopener">GoatCounter</a> for
+aggregate page-view counts only. It sets no cookies, does not identify individual visitors and
+does not track across sites. The privacy page itself is not counted.</p>
 <h2>Contact</h2>
 <p>For privacy questions, reach us via the contact route listed on the <a href="/about/">About page</a>.</p>
 """
