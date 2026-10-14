@@ -398,7 +398,18 @@ def review(key):
 
 # ---------- VS PAGE ----------
 def vs_page(c):
-    a, b = PRODUCTS[c["a"]], PRODUCTS.get(c["b"], {"name": c["b"], "official_url": c.get("b_url", "#")})
+    # Participant list. Two is the norm; more if 'c' / 'd' are present.
+    # A participant may be a products.json key or a plain name string,
+    # in which case we use it as a bare column with the given url.
+    def part(slot):
+        v = c.get(slot)
+        if not v:
+            return None
+        if v in PRODUCTS:
+            return PRODUCTS[v]
+        # bare name (e.g. "Miro") — take the url from the same slot's *_url key
+        return {"name": v, "official_url": c.get(f"{slot}_url", "#")}
+    parts = [p for p in (part(s) for s in ("a", "b", "c", "d")) if p]
     path = c["path"]
     body = ""
     body += f'<h1>{sg.esc(c["h1"])}</h1>'
@@ -407,24 +418,32 @@ def vs_page(c):
     if c.get("tldr"):
         body += f'<div class="tldr"><b>TL;DR:</b> {c["tldr"]}</div>'
     if c.get("table"):
-        cols = [a["name"], b["name"]]
+        cols = [p["name"] for p in parts]
         body += "<h2>Spec-by-spec</h2>" + sg.compare_table(c["table"], cols)
-        # ponytail: authoritative external links (Perplexity/GEO ask). b_url may be "#" for unknown products.
-        src = f'<a href="{a["official_url"]}" rel="noopener" target="_blank">{sg.esc(a["name"])}</a>'
-        if b.get("official_url") and b["official_url"] != "#":
-            src += f' · <a href="{b["official_url"]}" rel="noopener" target="_blank">{sg.esc(b["name"])}</a>'
+        # ponytail: authoritative external links (Perplexity/GEO ask) for every column.
+        links = [p for p in parts if p.get("official_url") and p["official_url"] != "#"]
+        src = " · ".join(
+            f'<a href="{p["official_url"]}" rel="noopener" target="_blank">{sg.esc(p["name"])}</a>'
+            for p in links)
         body += f'<p class="note">Sources: {src} — official pricing pages, verified {TODAY}.</p>'
     for sec in c.get("sections", []):
         body += f'<h2>{sec["h"]}</h2>{sec["html"]}'
     body += "<h2>Our verdict</h2>" + c.get("verdict", "")
-    # CTA к победителю + проигравшему (если есть affiliate-ссылка)
-    if c.get("winner") in PRODUCTS:
-        body += sg.cta_box(c["winner"])
-    loser_key = c["a"] if c.get("winner") == c["b"] else c["b"]
-    if loser_key in PRODUCTS and loser_key != c.get("winner"):
-        loser_href, loser_aff = sg.link_for(loser_key)
-        if loser_aff:
-            body += sg.cta_box(loser_key)
+    # CTA: winner gets cta_box unconditionally (cta_box itself falls back to
+    # ALT_MONETISE when the winner has no affiliate link — that's how
+    # cloudways-hosting pages monetise). Losers get one only if they have
+    # their own affiliate link OR an ALT_MONETISE redirect exists.
+    seen = set()
+    for slot in ("a", "b", "c", "d"):
+        key = c.get(slot)
+        if not key or key in seen or key not in PRODUCTS:
+            continue
+        is_winner = (key == c.get("winner"))
+        href, aff = sg.link_for(key)
+        has_alt = bool(sg.ALT_MONETISE.get(key))
+        if is_winner or aff or has_alt:
+            body += sg.cta_box(key)
+            seen.add(key)
     # ponytail: internal linking (was 5 unique links/page). Same-category vs pages, exclude self.
     rel = [x for x in CMP.get("pages", []) if x.get("category") == c.get("category") and x["path"] != path][:4]
     if rel:

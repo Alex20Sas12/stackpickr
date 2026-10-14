@@ -109,5 +109,24 @@
     "cta_blurb": "Fixed price confirmed at booking, driver meets you at arrivals — Istanbul & Antalya airports",
     "review_intro": "AvitoVIP Transfer is a Turkey airport transfer service: you book online before the trip, the price is fixed at checkout (no taxi-meter surprises), and a driver meets you in the arrivals hall with a name sign.",
     "rating": 4.6
+  },
+  "Mural": {
+    "name": "Mural",
+    "official_url": "https://www.mural.co/",
+    "category": "tools",
+    "app_category": "ProductivityApplication",
+    "short": "Visual collaboration boards with templates and a business tier",
+    "cta_blurb": "Mural Business from $17.99/member/mo (annual)",
+    "price_from": "17.99",
+    "rating": 4.5,
+    "rating_count": 2000,
+    "review_intro": "Mural is a visual collaboration board built for workshops, retros and facilitation.",
+    "key_facts": [
+      "3 boards on the free plan, 3 participants per board",
+      "Business plan $17.99/member/mo billed annually",
+      "30+ facilitation templates out of the box",
+      "SSO, SAML and admin controls on the business plan",
+      "Merged with Miro in early 2024 — features now converge over time"
+    ]
   }
 }
