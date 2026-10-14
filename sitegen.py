@@ -173,15 +173,30 @@ def stars(r):
     full = int(r); half = "½" if (r - full) >= 0.5 else ""
     return f'<span class="stars">{"★"*full}{half}{"☆"*(5-full- (1 if half else 0))}</span> <b>{r}/5</b>'
 
+# ponytail: affiliate-free product (pending program approval) must not send the
+# reader to a bare site with zero revenue. Append one monetised alt CTA (ishosting)
+# instead. If ishosting is ever removed from CFG links, this silently no-ops.
+ALT_MONETISE = {"cloudways": "ishosting"}
+
 def cta_box(key, blurb=None):
     p = PRODUCTS[key]
     href, is_aff = link_for(key)
     rel = ' rel="nofollow sponsored noopener"' if is_aff else ' rel="noopener"'
     label = f"Visit {p['name']} →"
     sub = blurb or p.get("cta_blurb", "")
+    alt = ""
+    if not is_aff and ALT_MONETISE.get(key):
+        ak = ALT_MONETISE[key]
+        ah, a_aff = link_for(ak)
+        if a_aff:
+            ap = PRODUCTS.get(ak, {})
+            alt = ('<div style="margin-top:10px;font-size:14px;color:var(--muted)">'
+                   f"Prefer an option that already accepts crypto and offers {e(ap.get('cta_blurb','niche locations'))}?"
+                   f' <a href="{ah}" rel="nofollow sponsored noopener" target="_blank">'
+                   f"Compare {e(ap.get('name',ak))} →</a></div>")
     return f"""<div class="cta-box"><div class="info"><b>{e(p['name'])}</b> — {e(sub)}<br>
 <span class="stars">{stars(p.get('rating',4.5))}</span></div>
-<a class="btn primary" href="{href}"{rel} target="_blank">{label}</a></div>"""
+<a class="btn primary" href="{href}"{rel} target="_blank">{label}</a>{alt}</div>"""
 
 def cta_dual(key_a, key_b):
     """CTA на обоих участника vs-страницы, если у обоих есть affiliate-ссылки."""

@@ -279,6 +279,7 @@ locations, backups, support and fine print.</p>
 <div class="card"><h3><a href="/hosting/cloudways/">Cloudways Review</a></h3><p>Managed cloud on DO/Vultr/AWS/GCP without the DevOps.</p></div>
 <div class="card"><h3><a href="/hosting/ishosting/">is*hosting Review</a></h3><p>VPS in 40+ countries, crypto payments, niche locations.</p></div>
 </div>
+{sg.cta_box('ishosting')}
 {sg.ad_block()}
 """
     return {"path": "/hosting/", "title": "Hosting & VPS Comparisons | StackPickr",
