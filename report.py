@@ -49,6 +49,21 @@ def himalaya_count(account, needles, lookback_days=7):
     return hits
 
 
+def goat_stats():
+    """Real pageviews from GoatCounter. Honesty: 0 is a real answer."""
+    try:
+        import urllib.request
+        g = json.load(open(r"C:\Users\Admin\fabrika\analytics\goatcounter.json", encoding="utf-8"))
+        req = urllib.request.Request(
+            g["api_base"] + "/stats/hits",
+            headers={"Authorization": "Bearer " + g["token"],
+                     "Content-Type": "application/json"})
+        d = json.loads(urllib.request.urlopen(req, timeout=20).read())
+        return "gc_views:%d" % d.get("total", 0)
+    except Exception as ex:
+        return "gc_views:unknown(%s)" % str(ex)[:30]
+
+
 def main():
     home_st, _ = http(SITE + "/")
     _, sm = http(SITE + "/sitemap.xml")
@@ -78,6 +93,7 @@ def main():
             adsterra = "$" + m.group(1)
 
     print(f"REPORT site:{home_st} sitemap:{sitemap_n} indexed:{indexed_n} cta:{cta_n} "
+          f"{goat_stats()} "
           f"adsterra:{adsterra} | mail_hits cloudways:{cloud} ishosting:{ish} "
           f"| revenue: $0 (no ledger; checking mail only)")
 
