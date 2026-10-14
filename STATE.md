@@ -1,59 +1,71 @@
 # StackPickr (cmpsite) — State
 
+Обновлено: 14.10.2026 16:20 МСК
+
 ## Проект
-Статический сайт сравнений софта/хостинга с affiliate-монетизацией (Admitad) + Adsterra-реклама.
-Домен: https://stackpickr.vercel.app (Vercel, статика, 40 страниц)
+Статический сайт сравнений хостинга/софта с affiliate-монetизацией + Adsterra.
+Домен: https://stackpickr.vercel.app (Vercel, статика, **47 страниц**)
 
-## Деньги (воронка)
-- **Admitad affiliate**: Cloudways ($108), is*hosting (9-30%), Tapfiliate ($178), Boardmix (32%), InVideo (16-32%), AvitoVIP ($3)
-- **Adsterra**: zone 6030096, NativeBanner_1 (1x4) — показы есть, $0 на балансе (низкий CPM RU-трафика)
-- **AvitoVIP**: ДОБАВЛЕН 08.10.2026 — review + guide + hub /transfer/
+## 💰 Заработано за всё время: **$0**
+Причина (проверено 14.10): сайт живёт 23 дня, но **индексировано 5 из 47 URL**
+→ ~90% страниц не существуют в поиске → трафика нет → кликов в партнёрки нет.
+Вторая причина: 8 страниц Cloudways вели читателей на голый сайт без affiliate-ссылки
+(исправлено 14.10).
 
-## Критические проблемы (найдены 08.10)
+## Базовая линия (R7)
+- До изменений 14.10: 47 страниц, 32 с партнёрским CTA, **8 страниц с CTA без монетизации**
+  (все cloudways), 0 аналитики, 5/47 URL в индексе.
+- После: 32 страницы с партнёрским CTA, **0 страниц без монетизации**, 47/47 URL в IndexNow
+  + Yandex ping, деплой верифицирован (200, 47 URL).
+
+## Критические проблемы (14.10)
 | Проблема | Severity | Статус |
 |----------|----------|--------|
-| ~~Vercel-токены протухли (09.09)~~ | CRITICAL | ✅ ИСПРАВЛЕНО 08.10 21:50 — вход через email-код (keyt9750@gmail.com), деплой OK |
-| ~~Cloudways/is*hosting CTA → голые сайты без affiliate-ссылок~~ | HIGH | ✅ is*hosting ПОДКЛЮЧЁН НАПРЯМУЮ 08.10 (программа is*hosting internal: 50% first purchase + 20% lifetime, вывод $20+ на PayPal/крипту/карту). Ссылка https://ishosting.com/affiliate/Nzk5NiM2 вшита на ВСЕ 7 is*hosting-страниц + dual-CTA на vs-страницах. Cloudways ждёт Admitad 2FA (support@mitgo.com молчит с 29.09). |
-| ~~Навигация /tools/ → 404 на boardmix-vs-miro/mural, invideo-vs-canva~~ | HIGH | ✅ ЗАДЕПЛОЕНО 08.10 (3 новые страницы, 200 OK) |
-| ~~AvitoVIP $3 не монетизировался (0 страниц)~~ | HIGH | ✅ ЗАДЕПЛОЕНО 08.10: /transfer/avitovip/ с kjuzv.com CTA + гайд + хаб |
-| ~~Нет /privacy/~~ | MEDIUM | ✅ ЗАДЕПЛОЕНО |
-| ~~Витринная ссылка → мёртвый shablony-pro.vercel.app~~ | MEDIUM | ✅ ЗАДЕПЛОЕНО (shablonypro.dpdns.org) |
-| ~~SEO-backlog крон a7a4d645691d сломан (DSML-баг)~~ | MEDIUM | ✅ Пересоздан как content-крон cc9acb7a2028 |
-| GSC-квота исчерпывается (общая ~10/день на все сайты) | LOW | Лимит 2/сайт/день соблюдается |
+| 4 крона StackPickr (health/content/traffic/report) удалены ~08.10 при инциденте очистки | CRITICAL | ❌ НЕ ВОССОЗДАНЫ — next action 1 |
+| Конфиг Hermes бит (дублирующий `enabled: false` в блоке `custom`) → новые правки не применялись, пиннинг моделей не работал | CRITICAL | ✅ ИСПРАВЛЕНО 14.10; `hermes config check` → rc=0 |
+| Сайт отдавал 404 на ВСЕХ страницах (мой ошибочный деплой корня репо) | CRITICAL | ✅ ВОССТАНОВЛЕНО (`deploy site --prod`); /, /hosting/, /hosting/cloudways/, /sitemap.xml = 200 |
+| Деплой уходил в **другой** Vercel-проект (`cmpsite-lyart`), созданный случайно; живой сайт не обновлялся 6 дней | CRITICAL | ✅ `--project stackpickr --scope keyt9750-7169s-projects` + `deploy.py` |
+| Cloudways-CTA → голый сайт: 8 страниц (обзор + 7 vs) без комиссионной ссылки | HIGH | ✅ `ALT_MONETISE={cloudways:ishosting}` в `cta_box()`; live: /hosting/cloudways/ aff:1 |
+| Хаб /hosting/ без партнёрского CTA | HIGH | ✅ `cta_box('ishosting')`; live aff:1 |
+| GitHub Actions не деплоил никогда: workflow на `main`, репо на `master` | HIGH | ⚠️ workflow вхолостую; деплой теперь `python deploy.py` (проверено) |
+| 26 из 28 падающих кронов системы идут с `model=None` → HTTP 503 Gemini structure_limit | HIGH (системный) | ⚠️ Кроны с явной моделью (qwen3.8-flash) держатся. Не чинил: влияет на все проекты, требует смены основного |
+| Индексация 5/47 URL (главный рычаг денег) | HIGH | ⚠️ 47 URL → IndexNow 200 + Yandex ping 200 (14.10); GSC-крон +2 URL/день |
+| НЕТ аналитики — не видно ни одного визита, конверсию мерить нельзя | HIGH | ⏳ GoatCounter требует регистрации |
+| `geo_audit/` не существует → триггер A1 (контент по запросам GSC) мёртв | MEDIUM | ❌ Триггер не сработает до создания geo_audit-скрипта |
+| Cloudways affiliate на 24h-модерации | MEDIUM | ⏳ Апрува нет (14.10 16:10 МСК, все входящие alexford0289@gmail.com); крон 471fb4e0b8b6 следит |
 
-## Кроны
-- GSC-крон 4a2686df505a: работает, ежедневно 10:10, сабмитит URL (квота ~2/сайт/день)
-- SEO-backlog-крон a7a4d645691d: сломан (DSML), не выполняет backlog
-- Дайджест ea6bf4fdb6cb: не работает (кронов нет в системе — потеряны при миграции)
+## Кроны (фактически, 14.10)
+**Живые для StackPickr:**
+| ID | Расписание | Что | Денежный след |
+|---|---|---|---|
+| 4a2686df505a | 10:10 ежедневно | GSC IndexNow, квота 2/сайт/день | URL в индексе → трафик → клик в партнёрку |
+| 471fb4e0b8b6 | 10:00/18:00 | апрув Cloudways (почта + панель) | ссылка Cloudways $50-125/продажа |
+| a7a4d645691d | вс 12:30 | SEO-backlog триггеры | ⚠️ geo_audit/ нет — триггеры не срабатывают |
+
+**Удалены (~08.10), нужны зановo:** health 56d9c3299a42, content cc9acb7a2028,
+traffic d4bcf1a69171, report f22749669341.
+
+## Автопилот — что должно быть (фаза 5)
+| Роль | Расписание | Действие → метрика → оплата |
+|---|---|---|
+| health 2×/день | 8:00, 20:00 | `python deploy.py`-проверки: / = 200, sitemap ≥40, ≥30 страниц с партнёрским CTA; падало → 🚨 + пересборка |
+| content 1×/день | 9:00 | новая vs-страница + `python deploy.py` + IndexNow → рост страниц с партнёрским CTA |
+| traffic 1×/день | 12:00 | `gsc_index_queue.py` + IndexNow; цель >25 URL в индексе к 21.10, 47 к 28.10 |
+| report 1×/вечер | 20:00 | URL в индексе (база 5 → цель 47), что задеплоено |
 
 ## Файлы
-- Код: cmpsite/sitegen.py + pages.py
-- Данные: cmpsite/data/*.json
-- Деплой: cmpsite/site/ → vercel --prod (требует auth)
+- `sitegen.py` (сборка), `pages.py` (контент), `data/*.json`
+- **`deploy.py`** — единый вход: пересборка → commit → push → `vercel deploy site --prod`
+  → live-проверка (exit 0 только если / = 200 и sitemap ≥40 URL)
+- `vercel.json` — cleanUrls, статика из `site/`
+- `gsc_index_queue.py` — очередь GSC через CDP 9232
+- Карантин `_quarantine/2026-10-08/` (3 МБ) + `_quarantine/2026-10-11/` (cw_*.py)
 
-## Следующие шаги (дедлайны)
-1. [до 09.10 22:00] Cloudways: дождаться апрува на alexford0289@gmail.com (himalaya envelope list --account alex | grep -i cloudways) → забрать affiliate-ссылку из панели unified.cloudways.com/account/referral → вписать в data/config.json links.cloudways → sitegen.py → деплой.
-2. [10.10] Проверить GSC: появились ли новые URL (/transfer/*, /tools/*) в индексе после IndexNow-сабмита 08.10.
-3. [ежедневно, content-крон] Триггер A1: новый запрос в geo_audit/gsc_queries.csv с impressions>=8 без страницы → создать страницу, пересборка, деплой, IndexNow.
-
-## Автопилот (СОЗДАН 08.10)
-| Крон | ID | Расписание | Что делает |
-|------|----|-----------|-----------|
-| health | 56d9c3299a42 | 8:00, 20:00 | сайт 200? sitemap >40? CTA не пустые? кроны не молчат? |
-| content | cc9acb7a2028 | 9:00 | триггеры SEO-BACKLOG (A1: новый запрос impressions>=8 → страница) |
-| traffic | d4bcf1a69171 | 12:00 | IndexNow новых URL + проверка GSC-крона |
-| report | f22749669341 | 20:00 | вечерняя сводка (в сводку 20:00) |
-- GSC-крон 4a2686df505a: работает, ежедневно 10:10 (квота 2/сайт/день)
-- SEO-backlog a7a4d645691d: сломан DSML-багом 04.10 — пересоздан как content-крон выше
-
-## Уборка (фаза 2B, 08.10)
-- Карантин `_quarantine/2026-10-08/` (3 МБ, ~120 файлов): gsc_*.py, adsterra_*.py, make_shots*.py, старые .png/.jpg скриншоты, deploy_*.log — одноразовые скрипты отладки GSC/Adsterra, ни на что не влияют (проверено: sitegen + сайт 200 OK после уборки). Удаление навсегда: 15.10, если ничего не сломается.
-
-## Юнит-экономика (фаза 3C, 08.10)
-| Оффер | Ставка | Сеть | Статус |
+## Юнит-экономика (фаза 3C)
+| Оффер | Ставка | Сеть | Статус на сайте |
 |---|---|---|---|
-| is*hosting | 50% первой покупки + 20% lifetime | DIRECT | ✅ ЖИВАЯ на сайте |
-| Cloudways | $50-125/продажа (Hybrid) | DIRECT | ⏳ заявка на модерации (ответ ≤24ч на alexford0289@gmail.com, крон проверяет) |
+| is*hosting | 50% первой покупки + 20% lifetime | DIRECT | ✅ единственная реально платящая сейчас |
+| Cloudways | $50-125/продажа (Hybrid) | DIRECT | ⏳ модерация; читатель ведётся на ishosting alt-CTA |
 | Tapfiliate | $178/тариф | Admitad | ✅ |
 | Boardmix | 32% | Admitad | ✅ |
 | InVideo | 16-32% | Admitad | ✅ |
@@ -61,4 +73,20 @@
 | Adsterra | CPM копеечный | — | фон, не зарплата |
 
 ## GitHub
-Репо: https://github.com/Alex20Sas12/stackpickr (создан 08.10, workflow .github/workflows/deploy.yml готов — нужен VERCEL_TOKEN secret после перелогина)
+Репо https://github.com/Alex20Sas12/stackpickr, ветка `master`.
+Workflow `.github/workflows/deploy.yml` смотрит на `main` → не срабатывал.
+Деплой теперь через `python deploy.py` (токен из `%APPDATA%\Roaming\com.vercel.cli\auth.json`).
+
+## Следующие шаги (деدлайны)
+1. [сегодня 18:00] Воссоздать 4 крона (health/content/traffic/report) — с `deploy.py` в health/traffic,
+   deliver=local в сводку 20:00, модель которая держит (не та что с 503).
+2. [сегодня 20:00] Аналитика (GoatCounter/Plausible, free) → без неё конверсия не мерится и фаза 3B мертва.
+   Нужна регистрация → спросить владельца.
+3. [21.10] Цель: ≥25 URL в индексе. Контроль через `gsc_index_queue.py`.
+
+## Чего НЕ делать дальше
+- Не деплоить с корня репо (404 на всём сайте). Только `deploy.py` / `vercel deploy site`.
+- Не создавать новые Vercel-проекты — только `--project stackpickr`.
+- Не трогать Admitad (2FA заблокирован с 29.09, поддержка молчит).
+- Не масштабировать Adsterra ($0 за 6 млн показов).
+- Не ждать Cloudways: alt-CTA на ishosting уже держит комиссию.
