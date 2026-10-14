@@ -128,5 +128,25 @@
       "SSO, SAML and admin controls on the business plan",
       "Merged with Miro in early 2024 — features now converge over time"
     ]
+  },
+  "hostinger": {
+    "name": "Hostinger",
+    "official_url": "https://www.hostinger.com/",
+    "category": "hosting",
+    "app_category": "WebApplication",
+    "short": "Budget VPS with KVM/NVMe plans from $6.49/mo across 11 data center locations",
+    "cta_blurb": "Linux KVM VPS from $6.49/mo — AMD EPYC, NVMe, 4 GB RAM at entry",
+    "review_intro": "Hostinger sells cheap KVM VPS on AMD EPYC hardware: 4 GB RAM at entry, NVMe storage and free weekly backups, with prices that rise at renewal.",
+    "price_from": "6.49",
+    "rating": 4.5,
+    "rating_count": 52000,
+    "pending_affiliate": true,
+    "key_facts": {
+      "pricing": "KVM 1 $6.49/mo (renews $11.99) · KVM 2 $8.99 ($14.99) · KVM 4 $12.99 ($28.99) · KVM 8 $25.99 ($49.99)",
+      "specs": "AMD EPYC, KVM, NVMe SSD, 1 Gbps network port",
+      "included": "Free automatic weekly backups, malware scanner, firewall, public API",
+      "locations": "11 data centers across 9 countries and 4 continents",
+      "verified": "Pricing checked 14 Oct 2026 against hostinger.com/vps/linux-hosting"
+    }
   }
 }

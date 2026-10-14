@@ -29,6 +29,8 @@ HOME_FAQS = [
 DISCLOSURE = CFG["disclosure"]
 ADSTERRA_KEY = CFG.get("adsterra", {}).get("native_key")
 ADSTERRA_SUB = CFG.get("adsterra", {}).get("subdomain", "pl31188985.profitableratecpmnetwork.com")
+GC_COUNT = CFG.get("goatcounter", {}).get("count_url", "https://stackpickr.goatcounter.com/count")
+GC_TAG = ('<script data-goatcounter="%s" async src="//gc.zgo.at/count.js"></script>' % GC_COUNT)
 
 PRODUCTS = json.load(open(os.path.join(DATA, "products.json"), encoding="utf-8"))
 
@@ -176,7 +178,7 @@ def stars(r):
 # ponytail: affiliate-free product (pending program approval) must not send the
 # reader to a bare site with zero revenue. Append one monetised alt CTA (ishosting)
 # instead. If ishosting is ever removed from CFG links, this silently no-ops.
-ALT_MONETISE = {"cloudways": "ishosting"}
+ALT_MONETISE = {"cloudways": "ishosting", "hostinger": "ishosting"}
 
 def cta_box(key, blurb=None):
     p = PRODUCTS[key]
@@ -191,9 +193,9 @@ def cta_box(key, blurb=None):
         if a_aff:
             ap = PRODUCTS.get(ak, {})
             alt = ('<div style="margin-top:10px;font-size:14px;color:var(--muted)">'
-                   f"Prefer an option that already accepts crypto and offers {e(ap.get('cta_blurb','niche locations'))}?"
+                   'Want the option that already accepts crypto with a wide data center map?'
                    f' <a href="{ah}" rel="nofollow sponsored noopener" target="_blank">'
-                   f"Compare {e(ap.get('name',ak))} →</a></div>")
+                   f"Compare {e(ap.get('name',ak))} &rarr;</a></div>")
     return f"""<div class="cta-box"><div class="info"><b>{e(p['name'])}</b> — {e(sub)}<br>
 <span class="stars">{stars(p.get('rating',4.5))}</span></div>
 <a class="btn primary" href="{href}"{rel} target="_blank">{label}</a>{alt}</div>"""

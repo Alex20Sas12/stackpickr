@@ -40,5 +40,10 @@
     "native_key": "c1fa3cf15028a15cfeb5d3f0c29d10d2",
     "subdomain": "pl31188985.profitableratecpmnetwork.com",
     "note": "zone created 04.09, NativeBanner_1 (1x4)"
+  },
+  "goatcounter": {
+    "count_url": "https://stackpickr.goatcounter.com/count",
+    "site": "stackpickr.goatcounter.com",
+    "note": "14.10: privacy-friendly page-view analytics, no cookies. Token in fabrika/analytics/goatcounter.json (not in config — avoid public deploy)."
   }
 }
