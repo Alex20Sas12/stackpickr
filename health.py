@@ -17,7 +17,8 @@ import glob, json, os, re, sys, urllib.request
 SITE = "https://stackpickr.vercel.app"
 ROOT = r"C:\Users\Admin\fabrika\cmpsite"  # ponytail: script lives in hermes/scripts, project path is fixed
 UA = {"User-Agent": "Mozilla/5.0"}
-AFF = ("ishosting.com/affiliate", "kjuzv", "axavl", "bednari", "admitad")
+AFF = ("ishosting.com/affiliate", "kjuzv", "axavl", "bednari", "admitad",
+       "cloudways.com/en/?id=")  # id= query string is the Cloudways affiliate marker
 MIN_PAGES = 40
 MIN_CTA_PAGES = 30
 
