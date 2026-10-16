@@ -2447,6 +2447,263 @@
           "Yes. Both run standard Linux + PHP + MySQL stacks, so a normal migration (files, database dump, DNS) moves your site. Cloudways also offers a free WordPress migration plugin. Keep your own backups while you transition, since neither provider guarantees support across providers."
         ]
       ]
+    },
+    {
+      "path": "/tools/notion-vs-obsidian/",
+      "category": "tools",
+      "h1": "Notion vs Obsidian",
+      "title": "Notion vs Obsidian (2026): Note-Taking & Knowledge Management Compared | StackPickr",
+      "summary": "Notion from $8/mo (Personal Pro) vs Obsidian free core + $8/mo Sync: databases, web clipper, AI, local-first markdown compared.",
+      "a": "notion",
+      "b": "obsidian",
+      "b_url": "https://obsidian.md/",
+      "intro": "Notion is an all-in-one workspace with databases, kanban, wikis and AI. Obsidian is a local-first markdown knowledge graph with plugins and optional sync. For example, you can host your site on <a href=\"https://ishosting.com/affiliate\">ishosting</a>. The comparison below uses published pricing from both providers' official pages.",
+      "tldr": "<b class='winner'>Notion</b> wins for teams needing databases and AI; <b class='winner'>Obsidian</b> wins for pure markdown, privacy and one-time cost. Choose based on workflow.",
+      "table": [
+        {
+          "feature": "Entry price",
+          "values": [
+            "$8/mo (Personal Pro)",
+            "Free (core) + $8/mo Sync"
+          ],
+          "winner": 1
+        },
+        {
+          "feature": "Platform",
+          "values": [
+            "Web, Desktop, Mobile",
+            "Desktop, Mobile (web via publish)"
+          ],
+          "winner": null
+        },
+        {
+          "feature": "Databases",
+          "values": [
+            "Yes (inline, relational)",
+            "No (folders/tags only)"
+          ],
+          "winner": 0
+        },
+        {
+          "feature": "AI features",
+          "values": [
+            "Notion AI (summarize, action items)",
+            "No native AI (community plugins)"
+          ],
+          "winner": 0
+        },
+        {
+          "feature": "Web clipper",
+          "values": [
+            "Yes (browser extension)",
+            "Yes (third-party)"
+          ],
+          "winner": null
+        },
+        {
+          "feature": "Offline first",
+          "values": [
+            "Partial (requires internet for sync)",
+            "Yes (local markdown)"
+          ],
+          "winner": 1
+        },
+        {
+          "feature": "Collaboration",
+          "values": [
+            "Real-time editing",
+            "Live sync (Obsidian Sync) or Git"
+          ],
+          "winner": null
+        }
+      ],
+      "sections": [
+        {
+          "h": "Why Notion stands out",
+          "html": "<p>Notion's databases let you build task boards, wikis and product roadmaps inside the same workspace. AI helps draft notes and extract action items. For teams that need more than plain notes, Notion's all‑in‑one approach reduces tool sprawl.</p>"
+        },
+        {
+          "h": "Why Obsidian stands out",
+          "html": "<p>Obsidian stores everything as local markdown files — your knowledge graph stays with you, works offline, and is future‑proof. With a one‑time purchase (or free core) and optional Sync, you avoid ongoing subscriptions unless you need cloud.</p>"
+        }
+      ],
+      "verdict": "<p><b class='winner'>Notion</b> is the better pick for teams and anyone who wants databases, AI and ready‑made templates. <b class='winner'>Obsidian</b> is ideal for writers, researchers and privacy‑focused users who prefer a local‑first markdown graph and are happy to DIY advanced features with plugins.</p>",
+      "winner": "notion",
+      "faqs": [
+        [
+          "Is Notion free?",
+          "Notion offers a free Personal plan with limited blocks; Personal Pro is $8/mo for unlimited blocks and file uploads."
+        ],
+        [
+          "Does Obsidian require a subscription?",
+          "The core app is free; Obsidian Sync and commercial add‑ons are optional paid tiers."
+        ],
+        [
+          "Can I use both together?",
+          "Yes — many users keep a Notion workspace for team projects and an Obsidian vault for personal knowledge."
+        ]
+      ]
+    },
+    {
+      "path": "/tools/invideo-vs-capcut-vs-pictory/",
+      "category": "tools",
+      "h1": "InVideo vs CapCut vs Pictory",
+      "title": "InVideo vs CapCut vs Pictory (2026): AI Video Tools Compared | StackPickr",
+      "summary": "InVideo Plus $17/mo (750 credits) vs CapCut Pro $19.99/mo (1,200) vs Pictory Starter $25/mo (100 credits a month). Verified pricing, AI credit math and which workflow each tool actually fits.",
+      "intro": "InVideo, CapCut and Pictory all advertise as AI video tools, but they do three different jobs. InVideo writes and renders a video from a prompt in your browser. CapCut is a timeline editor for footage you already have, with AI features on top. Pictory converts an article or URL into a finished video. Because all three meter AI usage in credits, a price comparison only means anything once you convert credits into finished output. Pricing below is from each vendor's own pricing page, checked 16 October 2026.",
+      "tldr": "Cheapest entry is InVideo Plus at $17/mo, but it ships the fewest credits of the three (750). CapCut Pro costs $2.99 more and gives 60% more credits (1,200) plus 1 TB of storage against InVideo's 20 GB. Pictory is the most expensive and the least AI per dollar (100 credits a month on Starter), trading dollars for brand kits and a 5M-clip stock library built around article-to-video work.",
+      "table": [
+        {
+          "feature": "Core workflow",
+          "values": [
+            "Prompt-to-video in the browser, plus a full editor",
+            "Timeline editor for footage you already have, on desktop, web and mobile",
+            "Article, URL or long video to short video"
+          ]
+        },
+        {
+          "feature": "Entry AI tier",
+          "values": [
+            "Plus - $17/mo, billed $200 a year",
+            "Pro - $19.99/mo",
+            "Starter - $25/mo billed annually ($29 monthly)"
+          ],
+          "winner": 0
+        },
+        {
+          "feature": "AI credits per month",
+          "values": [
+            "750",
+            "1,200",
+            "100 (1,200 a year)"
+          ],
+          "winner": 1
+        },
+        {
+          "feature": "Storage at entry tier",
+          "values": [
+            "20 GB",
+            "1 TB",
+            "5 GB"
+          ],
+          "winner": 1
+        },
+        {
+          "feature": "Stock media at entry tier",
+          "values": [
+            "100 iStock assets a month, plus Storyblocks",
+            "Built-in CapCut template and media library",
+            "5M clips from Getty Images and Storyblocks"
+          ]
+        },
+        {
+          "feature": "Free tier",
+          "values": [
+            "None listed on the current pricing page",
+            "Yes - basic editing and free templates",
+            "Yes - limited, with watermark"
+          ],
+          "winner": 1
+        },
+        {
+          "feature": "AI avatars and voice clones",
+          "values": [
+            "4 on Plus, scaling to 200 on Elite",
+            "Voice cloning available on Pro",
+            "Custom avatars from Professional, $35/mo"
+          ],
+          "winner": 0
+        },
+        {
+          "feature": "Brand kits",
+          "values": [
+            "Not listed on the pricing page",
+            "Team plan only",
+            "1 on Starter, up to 10 on Team"
+          ],
+          "winner": 2
+        },
+        {
+          "feature": "Export",
+          "values": [
+            "Unlimited, no watermark on every paid tier",
+            "Watermark removed on Pro",
+            "No watermark on every paid tier"
+          ],
+          "winner": 0
+        },
+        {
+          "feature": "Annual discount",
+          "values": [
+            "15% off Plus through Generative, 10% on Elite",
+            "Not published",
+            "Up to 40% off on annual billing"
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "h": "What each tool actually does",
+          "html": "<p>None of these three is a drop-in replacement for another, and that is the most important line on this page.</p><ul class=&quot;check&quot;><li><b>InVideo</b> starts from a prompt. You describe the video, pick a workflow, and it assembles script, voiceover, stock and clips into a finished cut - then opens the editor if you want to hand-tune. The whole thing runs in a browser tab.</li><li><b>CapCut</b> starts from footage. It is a non-linear editor: you drag clips onto a timeline, trim, grade and add effects. AI features - auto captions, background removal, motion tracking, AI image and video generation - sit on top of that timeline.</li><li><b>Pictory</b> starts from words. Paste a blog URL or a YouTube link and it chunks the text into scenes, matches stock clips and voices the narration. It is built for repurposing existing content into many short videos.</li></ul><p>If your raw material is a camera roll, CapCut is the only one that fits. If your raw material is an idea you can describe, InVideo is the only one that fits. If your raw material is an article, Pictory is the only one that fits.</p>"
+        },
+        {
+          "h": "Pricing, verified 16 October 2026",
+          "html": "<h3>InVideo AI</h3><table><thead><tr><th>Plan</th><th>Annual price</th><th>Credits/mo</th><th>Storage</th></tr></thead><tbody><tr><td>Plus</td><td>$17/mo ($200/yr)</td><td>750</td><td>20 GB</td></tr><tr><td>Max</td><td>$85/mo ($1,000/yr)</td><td>3,900</td><td>100 GB</td></tr><tr><td>Generative</td><td>$170/mo ($2,000/yr)</td><td>8,000</td><td>2 TB</td></tr><tr><td>Elite</td><td>$900/mo ($10,800/yr)</td><td>42,500</td><td>10 TB</td></tr></tbody></table><p class=&quot;note&quot;>Source: invideo.io/pricing. All paid tiers include unlimited watermark-free exports and access to 200+ models including Seedance 2.5, Veo 3.1, Kling 3.0, Nano Banana Pro and ElevenLabs music. iStock allowance runs 100, 200, 1,000 and 5,000 assets per month on the four tiers respectively.</p><h3>CapCut</h3><table><thead><tr><th>Plan</th><th>Price</th><th>AI credits/mo</th><th>Storage</th></tr></thead><tbody><tr><td>Free</td><td>$0</td><td>Basic tools, free templates</td><td>-</td></tr><tr><td>Pro</td><td>$19.99/mo</td><td>1,200</td><td>1 TB</td></tr><tr><td>Ultra</td><td>$79/mo</td><td>8,645</td><td>1 TB</td></tr></tbody></table><p class=&quot;note&quot;>Source: capcut.com/pricing. The page states that displayed pricing is for reference only and asks you to sign in to see final pricing, taxes and offers, so treat these as published list prices. CapCut lists up to 240 seconds at 720p, or 600 seconds at 480p, from Pro's credits with Seedance 2.0 Mini.</p><h3>Pictory</h3><table><thead><tr><th>Plan</th><th>Annual price</th><th>Users</th><th>AI credits</th></tr></thead><tbody><tr><td>Starter</td><td>$25/mo ($29 monthly)</td><td>1</td><td>1,200 a year</td></tr><tr><td>Professional</td><td>$35/mo ($59 monthly)</td><td>1</td><td>12,000 a year</td></tr><tr><td>Team</td><td>$119/mo ($199 monthly)</td><td>3+</td><td>28,800 a year</td></tr><tr><td>Enterprise</td><td>Custom</td><td>10+</td><td>Custom</td></tr></tbody></table><p class=&quot;note&quot;>Source: pictory.ai/pricing. Pictory advertises up to 40% off on annual billing, and annual plans include a consultation with a video-creation expert that it values at $210.</p>"
+        },
+        {
+          "h": "The credit math that decides your bill",
+          "html": "<p>Credits are the unit all three charge in, and the allowances are not comparable: the vendors do not publish a common price per credit, they publish what their own credits buy.</p><table><thead><tr><th>Entry plan</th><th>Credits</th><th>What the vendor says that buys</th></tr></thead><tbody><tr><td>InVideo Plus, $17/mo</td><td>750</td><td>300 Nano Banana Pro images, or 600 Nano Banana 2 generations</td></tr><tr><td>CapCut Pro, $19.99/mo</td><td>1,200</td><td>Up to 240 seconds at 720p, or 600 seconds at 480p, on Seedance 2.0 Mini</td></tr><tr><td>Pictory Starter, $25/mo</td><td>100 a month</td><td>2,000 images, 12.5 minutes of video, or 40 minutes of avatar video</td></tr></tbody></table><p>InVideo quotes images per credit, CapCut quotes seconds of generated video, Pictory quotes a mixed basket. There is no way to rank the three on AI value per dollar from published numbers alone - the credit economies are not interoperable.</p><p>Two rules do hold across all three: unused credits expire, and regeneration costs credits again. InVideo states in its FAQ that editing or downloading something already generated is free, but re-rolling a generation costs credits once more. If your workflow regenerates often, budget top-ups rather than assuming the monthly allowance covers you.</p>"
+        },
+        {
+          "h": "Where each pricing page is opaque",
+          "html": "<ul class=&quot;check&quot;><li><b>CapCut</b> publishes plan prices but gates the detailed feature list behind sign-in, and its own page says the displayed price is for reference only. Third-party reviews also report that app-store billing runs $2-3 more per month than the web subscription, because Apple and Google take a commission and pass it on. If you are committing to Pro, buy through the browser.</li><li><b>InVideo</b> publishes credits per plan but not a credit price per video model. Its FAQ adds that model and agent prices are subject to change without prior notice, so the credits you bought this month may not buy the same output next month.</li><li><b>Pictory</b> publishes the most, but quotes AI credits per year instead of per month. Starter's 1,200 credits look competitive next to CapCut's 1,200 until you notice one figure is annual and the other monthly - Pictory delivers 100 credits a month.</li></ul>"
+        },
+        {
+          "h": "Honest trade-offs",
+          "html": "<div class=&quot;pros-cons&quot;><div class=&quot;pros&quot;><h3>InVideo - pros</h3><ul class=&quot;check&quot;><li>Lowest entry price at $17/mo</li><li>Unlimited watermark-free exports on every paid tier</li><li>200+ models behind one login, including Veo 3.1 and Kling 3.0</li><li>Runs entirely in the browser, nothing to install</li></ul></div><div class=&quot;cons&quot;><h3>InVideo - cons</h3><ul><li>Fewest credits of the three at entry tier (750)</li><li>No free tier on the current pricing page</li><li>Credits do not roll over</li><li>Model and agent prices can change without notice</li></ul></div><div class=&quot;pros&quot;><h3>CapCut - pros</h3><ul class=&quot;check&quot;><li>Genuine free tier for basic editing</li><li>1 TB of storage on Pro</li><li>Most credits at the closest price point: 1,200 for $19.99</li><li>Mobile and desktop from one subscription</li></ul></div><div class=&quot;cons&quot;><h3>CapCut - cons</h3><ul><li>Pricing page gates feature detail behind sign-in</li><li>App-store subscriptions cost more than web</li><li>Prompt-to-video is a feature, not the whole product: you still cut a timeline</li></ul></div><div class=&quot;pros&quot;><h3>Pictory - pros</h3><ul class=&quot;check&quot;><li>Only one of the three built around article and URL to video</li><li>Brand kits from the entry tier, up to 10 on Team</li><li>5M to 18M stock clips depending on tier</li><li>Video summarisation of long videos from Professional</li></ul></div><div class=&quot;cons&quot;><h3>Pictory - cons</h3><ul><li>Fewest credits per month of the three (100 on Starter)</li><li>Custom avatars and voice cloning start at Professional, $35/mo</li><li>Cheapest tier has the smallest AI pool of all three entry plans</li></ul></div></div>"
+        },
+        {
+          "h": "Who each one is for",
+          "html": "<ul class=&quot;check&quot;><li><b>InVideo</b> - marketers and small teams producing a steady stream of short videos from a browser, without an editor or a camera. Typical use: product explainers, ad variations, social content cut from a written brief.</li><li><b>CapCut</b> - solo creators and agencies who already film or source their own footage and need a fast editor on both phone and desktop. Social-first: TikTok, Reels and Shorts cuts.</li><li><b>Pictory</b> - content operations that already have a library of articles, webinars or long videos and need to cut them into shorts at volume. Brand kits from the entry tier make it the cleanest fit for a team with a consistent visual system.</li></ul>"
+        }
+      ],
+      "verdict": "<p>There is no single winner here, because the three tools start from different raw material: an idea, a camera roll, or an article. But if you want one default recommendation for a marketer working from a browser, it is <b class='winner'>InVideo</b>.</p><p>At $17/mo it is the cheapest entry of the three, and the only one of the three that turns a written brief into a finished cut without touching a timeline. It also gives unlimited watermark-free exports on every paid tier and access to 200+ generation models behind one login. The trade-off is real, so price it before you sign: 750 credits is 37% fewer than CapCut Pro for $2.99 more, and InVideo does not publish a credit price per video model, so the same credits may buy less next month.</p><p><b class='winner'>CapCut</b> wins on raw AI value per dollar - 1,200 credits, 1 TB of storage and a genuine free tier for $19.99/mo - and it is the correct call if your footage already exists. <b class='winner'>Pictory</b> is the only correct answer for turning a blog post into a video, and its brand kits make it the most team-friendly of the three; just read its credit column as annual, not monthly.</p><p>Practical sequence: start on CapCut free for editing, test InVideo Plus for a month if you want prompt-to-video, and only pay for Pictory if you have a real pile of existing articles to convert.</p>",
+      "winner": "invideo",
+      "a": "invideo",
+      "b": "CapCut",
+      "b_url": "https://www.capcut.com/",
+      "c": "Pictory",
+      "c_url": "https://www.pictory.ai/",
+      "faqs": [
+        [
+          "Which is cheapest to start with - InVideo, CapCut or Pictory?",
+          "InVideo Plus at $17/mo billed annually is the lowest entry price. CapCut Pro is $19.99/mo and Pictory Starter is $25/mo billed annually, $29 monthly."
+        ],
+        [
+          "How many AI credits do you get at the entry tier?",
+          "InVideo Plus: 750 per month. CapCut Pro: 1,200 per month. Pictory Starter: 1,200 per year, which is 100 per month."
+        ],
+        [
+          "Are CapCut and InVideo credits the same thing?",
+          "No. Each vendor prices credits against its own models: InVideo quotes images per credit, CapCut quotes seconds of generated video, Pictory quotes a mixed basket. There is no way to compare the three directly from published numbers."
+        ],
+        [
+          "Do unused credits roll over?",
+          "No, on all three. InVideo states in its FAQ that unused credits do not roll over, and CapCut and Pictory both describe credits as periodic allowances rather than a balance."
+        ],
+        [
+          "Can I use CapCut for free?",
+          "Yes. CapCut has a free tier with basic editing tools and free templates. Pro at $19.99/mo removes watermarks and adds the AI toolkit, 1 TB of storage and 1,200 monthly credits."
+        ],
+        [
+          "What is Pictory actually good for?",
+          "Converting an article, URL or long video into shorter videos at volume. It adds brand kits from the entry tier, which the other two do not offer at their entry price."
+        ],
+        [
+          "Do I need a camera or my own footage for InVideo?",
+          "No, that is InVideo's main point. It generates footage or pulls stock clips from your prompt. CapCut assumes you have footage to edit on a timeline."
+        ]
+      ]
     }
   ],
   "listicles": [
